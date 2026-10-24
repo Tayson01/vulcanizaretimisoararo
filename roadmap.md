@@ -52,4 +52,4 @@
 - [x] Barele „Timp estimat de sosire": umplere fină pe transform (fără recalculare de layout) + nuanță mai deschisă la început, efect decorativ minim pe telefon
 - [x] Corectează declanșarea barelor pe telefon și verifică umplerea, vizibilitatea implicită și preferința de mișcare redusă — verificat la 390×844, 360×640 și desktop; fără erori.
 
-- [ ] Pagina „Toate prețurile" (/preturi): layout premium cu toată lista de prețuri
+- [x] Pagina „Toate prețurile" (/preturi): layout premium cu toată lista de prețuri
