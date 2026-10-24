@@ -42,3 +42,46 @@ export const QUICK_REPAIRS = [
   { name: "Ciupercă", price: 100, from: false },
   { name: "Șnur", price: 50, from: false },
 ];
+
+// ===== Calculator estimativ =====
+export type CalcInput = {
+  size: number; // index în SIZES
+  service: "schimb" | "montaj";
+  wheels: number; // 1–4, doar pentru montaj
+  valves: boolean;
+  extras: Record<string, number>; // id -> cantitate
+};
+
+const isC = (r: string) => r === "C-uri";
+export function dejantatPrice(r: string) {
+  if (isC(r)) return 25;
+  const n = Number(r);
+  return n <= 15 ? 15 : n <= 20 ? 20 : 25;
+}
+
+export const CALC_EXTRAS: { id: string; name: string; price: (r: string) => number; perWheel?: boolean }[] = [
+  { id: "dejantat", name: "Dejantat roată", price: dejantatPrice, perWheel: true },
+  { id: "snur", name: "Reparație șnur", price: () => 50 },
+  { id: "ciuperca", name: "Reparație ciupercă", price: () => 100 },
+  { id: "petic", name: "Petic 10 cm", price: () => 80 },
+  { id: "verificat", name: "Verificat roată", price: () => 30 },
+  { id: "etansat", name: "Etanșat roată", price: () => 50 },
+  { id: "prezon", name: "Extragere prezon / antifurt", price: () => 75 },
+];
+
+export function calcTotal(c: CalcInput) {
+  const s = SIZES[c.size] ?? SIZES[0]!;
+  const lines: [string, number][] = [];
+  if (c.service === "schimb") {
+    lines.push([c.valves ? "Schimb complet cu valve · 4 roți" : "Schimb complet · 4 roți", c.valves ? s[4] : s[2]]);
+  } else {
+    const w = Math.min(4, Math.max(1, c.wheels));
+    const unit = c.valves ? s[3] : s[1];
+    lines.push([`Montat + echilibrat${c.valves ? " + valvă" : ""} · ${w} × ${unit} lei`, unit * w]);
+  }
+  for (const e of CALC_EXTRAS) {
+    const q = c.extras[e.id] ?? 0;
+    if (q > 0) lines.push([`${e.name}${q > 1 ? ` × ${q}` : ""}`, e.price(s[0]) * q]);
+  }
+  return { lines, total: lines.reduce((a, l) => a + l[1], 0) };
+}
