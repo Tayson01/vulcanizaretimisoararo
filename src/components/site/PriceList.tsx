@@ -2,41 +2,8 @@ import { useState } from "react";
 import { BadgeCheck, Phone, Receipt, Wrench } from "lucide-react";
 import { Btn } from "@/components/site/ui";
 import { PHONE, TEL } from "@/lib/site-data";
+import { EXTRA, REPAIRS, SINGLES, SIZES } from "@/lib/prices";
 
-// [jantă, montat+echilibrat 1 buc, schimb 4 buc, montat+echilibrat+valve 1 buc, schimb cu valve 4 buc]
-const SIZES: [string, number, number, number, number][] = [
-  ["13", 50, 180, 70, 250],
-  ["14", 50, 180, 70, 250],
-  ["15", 60, 200, 80, 260],
-  ["16", 60, 210, 80, 260],
-  ["17", 65, 250, 85, 300],
-  ["18", 70, 260, 90, 320],
-  ["19", 75, 280, 95, 350],
-  ["20", 80, 300, 100, 370],
-  ["21", 85, 320, 100, 370],
-  ["22", 90, 350, 110, 400],
-  ["23", 100, 380, 120, 450],
-  ["24", 100, 400, 120, 450],
-  ["C-uri", 75, 300, 100, 400],
-];
-
-const REPAIRS = [
-  { name: "Petic", rows: [["10 cm", 80], ["12 cm", 120], ["20 cm", 170], ["25 cm", 200]] as [string, number][] },
-  { name: "Ciupercă", price: 100 },
-  { name: "Șnur", price: 50 },
-];
-
-const EXTRA: { name: string; rows: [string, number][] }[] = [
-  { name: "Dejantat roată", rows: [["13–15", 15], ["16–20", 20], ["21–24", 25], ["C-uri", 25]] },
-  { name: "Montat anvelopă pe jantă (fără echilibrat)", rows: [["13–16", 30], ["17–20", 50], ["21–24", 60], ["C-uri", 60]] },
-  { name: "Valve / buc", rows: [["Standard", 30], ["C-uri", 50], ["Mecanice", 75]] },
-];
-
-const SINGLES: [string, number][] = [
-  ["Verificat roată", 30],
-  ["Etanșat roată", 50],
-  ["Extragere prezon / antifurt", 75],
-];
 
 function Lei({ v, big }: { v: number; big?: boolean }) {
   return (
