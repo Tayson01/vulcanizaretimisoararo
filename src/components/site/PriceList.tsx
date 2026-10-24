@@ -41,11 +41,11 @@ const ANCHORS = [
   { href: "#suplimentare", label: "Suplimentare" },
 ];
 
-const COLS: [string, string][] = [
-  ["Montat + echilibrat", "1 roată"],
-  ["Schimb complet", "4 roți"],
-  ["Cu valvă", "1 roată"],
-  ["Schimb cu valve", "4 roți"],
+const COLS: [string, string, string][] = [
+  ["Montat + echilibrat", "1 roată", "Mont. + ech."],
+  ["Schimb complet", "4 roți", "Schimb 4"],
+  ["Cu valvă", "1 roată", "+ valvă"],
+  ["Schimb cu valve", "4 roți", "Schimb + valve"],
 ];
 
 export function PriceList() {
@@ -202,14 +202,15 @@ export function PriceList() {
             </div>
             <div className="relative">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[620px] text-sm">
+              <table className="w-full text-[12px] sm:min-w-[620px] sm:text-sm">
                 <caption className="sr-only">Prețuri pe dimensiuni de jantă, TVA inclus</caption>
                 <thead>
-                  <tr className="border-b border-border text-[10px] font-black uppercase tracking-wider text-muted-foreground">
-                    <th scope="col" className="px-4 py-3 text-left sm:px-5">Jantă</th>
-                    {COLS.map(([t, sub]) => (
-                      <th key={t} scope="col" className="px-3 py-3 text-right sm:px-4">
-                        <span className="block">{t}</span>
+                  <tr className="border-b border-border text-[9px] font-black uppercase tracking-wider text-muted-foreground sm:text-[10px]">
+                    <th scope="col" className="px-2 py-3 text-left sm:px-5">Jantă</th>
+                    {COLS.map(([t, sub, short]) => (
+                      <th key={t} scope="col" className="px-1.5 py-3 text-right sm:px-4">
+                        <span className="hidden sm:block">{t}</span>
+                        <span className="sm:hidden">{short}</span>
                         <span className="block font-bold normal-case tracking-normal opacity-70">{sub}</span>
                       </th>
                     ))}
