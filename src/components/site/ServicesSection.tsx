@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, ArrowUpRight, Car, Check, Clock, House, Landmark, MapPin, Moon, Phone, Route, Signpost, Truck, Wrench, LayoutGrid } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { PHONE, TEL, WA, services, zones } from "@/lib/site-data";
+import { PHONE, TEL, WA, priceHighlights, services, zones } from "@/lib/site-data";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Btn, BtnLink, SectionLabel } from "@/components/site/ui";
@@ -114,6 +114,20 @@ export function ServicesSection() {
               ))}
             </div>
           )}
+          <div data-service-reveal className="svc-prices mt-4 rounded-2xl border border-border bg-card p-4 sm:p-5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-black uppercase tracking-widest text-brand">Prețuri rapide</span>
+              {priceHighlights.map((p) => (
+                <span key={p.label} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-bold">
+                  <span className="text-muted-foreground">{p.label}</span>
+                  <span className="tabular-nums text-brand">{p.value}</span>
+                </span>
+              ))}
+              <Link to="/" hash="preturi" className="ml-auto inline-flex items-center gap-1 text-xs font-black text-brand hover:underline">
+                Toate prețurile <ArrowRight className="size-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

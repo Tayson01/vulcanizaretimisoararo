@@ -45,7 +45,7 @@ describe("Timișoara business contact", () => {
   });
 });
 import { zones as allZones, zoneRedirects, COVERAGE } from "./site-data";
-import { services, faqs } from "./site-data";
+import { services, faqs, priceHighlights } from "./site-data";
 import { posts } from "./blog-data";
 test("acoperire: tot județul Timiș + A1 Nădlac–Margina", () => {
   expect(COVERAGE.county).toBe("Timiș");
@@ -72,9 +72,27 @@ describe("servicii oferite", () => {
 });
 
 describe("prețul la atelier", () => {
-  test("prețul de 50 lei pentru schimb + echilibrare nu mai apare nicăieri", () => {
-    const totText = JSON.stringify({ services, faqs, zones: allZones, posts });
-    expect(totText).not.toMatch(/50 (de )?lei/);
-    expect(totText).not.toMatch(/40 (de )?lei/);
+  test("niciun «schimb» nu este anunțat la 40 sau 50 lei (preț vechi de flyer)", () => {
+    for (const s of services) {
+      for (const p of s.pricing ?? []) {
+        if (/schimb/i.test(p.label)) expect(p.value).not.toMatch(/\b(40|50)\s?(de )?lei/);
+      }
+    }
+    expect(JSON.stringify({ services, faqs, zones: allZones, posts, priceHighlights })).not.toMatch(/\b40 (de )?lei/);
+  });
+  test("serviciile afișează preț real, nu „Preț la telefon”", () => {
+    const preturi = services.map((s) => s.price).join(" | ");
+    expect(preturi).toContain("de la 50 lei");
+    expect(preturi).toContain("de la 180 lei");
+    expect(preturi).not.toContain("Preț la telefon");
+  });
+  test("prețurile rapide din secțiunea servicii coincid cu lista 2026", () => {
+    expect(priceHighlights).toEqual([
+      { label: "Montat + echilibrat", value: "de la 50 lei" },
+      { label: "Schimb 4 roți", value: "de la 180 lei" },
+      { label: "Petic", value: "de la 80 lei" },
+      { label: "Ciupercă", value: "100 lei" },
+      { label: "Șnur", value: "50 lei" },
+    ]);
   });
 });

@@ -68,12 +68,12 @@ export function PriceList() {
         </div>
 
         {/* Panou principal — calculator de preț pe dimensiune */}
-        <div className="pr-panel mt-8 overflow-hidden rounded-3xl shadow-float">
-          <div className="h-1 bg-gradient-to-r from-brand via-brand/60 to-brand" />
+        <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <div className="h-1 bg-brand" />
           <div className="p-5 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm font-bold uppercase tracking-widest opacity-70">Alege dimensiunea jantei</p>
-              <p className="text-xs font-semibold opacity-50">Autoturisme, SUV / 4x4, microbuze și camionete până la 3,5 t</p>
+              <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Alege dimensiunea jantei</p>
+              <p className="text-xs font-semibold text-muted-foreground">Autoturisme, SUV / 4x4, microbuze și camionete până la 3,5 t</p>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {SIZES.map((r, k) => (
@@ -84,8 +84,8 @@ export function PriceList() {
                   aria-pressed={k === i}
                   className={`min-w-12 rounded-full border px-3.5 py-2 text-sm font-black tabular-nums transition-all ${
                     k === i
-                      ? "border-brand bg-brand text-brand-foreground shadow-glow scale-105"
-                      : "border-white/15 bg-white/5 text-inherit hover:border-brand/60 hover:bg-white/10"
+                      ? "border-brand bg-brand text-brand-foreground shadow-card scale-105"
+                      : "border-border bg-surface text-foreground hover:border-brand/60 hover:bg-brand-soft"
                   }`}
                 >
                   {r[0] === "C-uri" ? "C-uri" : `R${r[0]}`}
@@ -95,16 +95,16 @@ export function PriceList() {
 
             <div className="mt-7 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
               {/* Prețul vedetă */}
-              <div key={`hero-${i}`} className="pr-pop relative overflow-hidden rounded-2xl border border-brand/40 bg-brand/10 p-6 sm:p-8">
+              <div key={`hero-${i}`} className="pr-pop relative overflow-hidden rounded-2xl border border-brand/30 bg-brand-soft p-6 sm:p-8">
                 <div className="absolute right-4 top-4 rounded-full bg-brand px-3 py-1 text-[11px] font-black uppercase tracking-wider text-brand-foreground">
                   Cel mai cerut
                 </div>
-                <p className="text-sm font-bold uppercase tracking-widest opacity-70">Schimb complet · set 4 roți</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Schimb complet · set 4 roți</p>
                 <div className="mt-3 flex items-end gap-2">
                   <span className="text-6xl font-black tabular-nums leading-none tracking-tight text-brand sm:text-7xl">{s[2]}</span>
-                  <span className="pb-1 text-lg font-bold opacity-70">lei</span>
+                  <span className="pb-1 text-lg font-bold text-muted-foreground">lei</span>
                 </div>
-                <p className="mt-3 flex items-center gap-1.5 text-sm font-semibold opacity-80">
+                <p className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-foreground">
                   <BadgeCheck className="size-4 text-brand" /> Montat + echilibrat pe toate cele 4 roți
                 </p>
               </div>
@@ -112,10 +112,10 @@ export function PriceList() {
               {/* Variante secundare */}
               <div className="grid gap-3">
                 {secondary.map(([t, sub, v]) => (
-                  <div key={`${t}-${i}`} className="pr-pop flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                  <div key={`${t}-${i}`} className="pr-pop flex items-center justify-between gap-3 rounded-2xl border border-border bg-surface px-5 py-4">
                     <div>
-                      <div className="text-sm font-bold leading-tight">{t}</div>
-                      <div className="text-[11px] font-semibold uppercase tracking-wider opacity-50">{sub}</div>
+                      <div className="text-sm font-bold leading-tight text-foreground">{t}</div>
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{sub}</div>
                     </div>
                     <span className="whitespace-nowrap text-2xl font-black tabular-nums text-brand">
                       {v}<span className="ml-0.5 text-xs font-bold">lei</span>
@@ -174,7 +174,7 @@ export function PriceList() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col items-start gap-3 rounded-3xl border border-brand/20 bg-brand/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col items-start gap-3 rounded-3xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
             <Receipt className="size-5 shrink-0 text-brand" /> Facturi pentru persoane fizice și juridice. Plată card, cash sau transfer.
           </p>
