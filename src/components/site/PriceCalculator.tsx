@@ -118,7 +118,7 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
           </div>
 
           {/* Bon */}
-          <aside className="lg:sticky lg:top-36 lg:self-start">
+          <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-border bg-card p-5 qp sm:p-6">
               <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-widest text-muted-foreground">
                 <span>Estimare · {sizeLabel(r)}</span>
