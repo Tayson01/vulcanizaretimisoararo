@@ -60,7 +60,7 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
         </div>
 
         <div className="mt-6 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-6 rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-6">
+          <div className="min-w-0 space-y-6 rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-6">
             {/* 1. Jantă */}
             <div>
               <StepTitle n="1">Dimensiunea jantei</StepTitle>
@@ -128,7 +128,7 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
           </div>
 
           {/* Bon */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
+          <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
             <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg shadow-foreground/5">
               <div className="flex items-center justify-between bg-brand px-5 py-3 text-brand-foreground">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest">
