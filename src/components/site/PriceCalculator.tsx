@@ -71,7 +71,7 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
               <div className="mt-2 flex gap-1.5 rounded-2xl border border-border bg-surface p-1.5">
                 <button type="button" className={seg(service === "schimb")} onClick={() => setService("schimb")} aria-pressed={service === "schimb"}>
                   <div className="text-sm font-black">Schimb complet</div>
-                  <div className="text-[11px] font-semibold opacity-80">set 4 roți</div>
+                  <div className="text-[11px] font-semibold opacity-80">1–4 roți</div>
                 </button>
                 <button type="button" className={seg(service === "montaj")} onClick={() => setService("montaj")} aria-pressed={service === "montaj"}>
                   <div className="text-sm font-black">Montat + echilibrat</div>
@@ -79,22 +79,23 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
                 </button>
               </div>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                {service === "montaj" ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold">Câte roți</span>
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4].map((n) => (
-                        <button key={n} type="button" onClick={() => setWheels(n)} aria-pressed={wheels === n}
-                          className={`size-8 rounded-full border text-sm font-black ${wheels === n ? "border-brand bg-brand text-brand-foreground" : "border-border hover:border-brand"}`}>{n}</button>
-                      ))}
-                    </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold">Câte roți</span>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4].map((n) => (
+                      <button key={n} type="button" onClick={() => setWheels(n)} aria-pressed={wheels === n}
+                        className={`size-8 rounded-full border text-sm font-black ${wheels === n ? "border-brand bg-brand text-brand-foreground" : "border-border hover:border-brand"}`}>{n}</button>
+                    ))}
                   </div>
-                ) : <span />}
+                </div>
                 <label className="flex cursor-pointer items-center gap-2 text-sm font-bold">
                   <input type="checkbox" checked={valves} onChange={(e) => setValves(e.target.checked)} className="size-4 accent-[var(--brand)]" />
                   Cu valve noi
                 </label>
               </div>
+              {service === "schimb" && wheels < 4 && (
+                <p className="mt-2 text-[11px] font-semibold text-muted-foreground">La mai puțin de 4 roți, schimbul se facturează la prețul pe roată.</p>
+              )}
             </div>
 
             {/* 3. Extra */}

@@ -47,7 +47,7 @@ export const QUICK_REPAIRS = [
 export type CalcInput = {
   size: number; // index în SIZES
   service: "schimb" | "montaj";
-  wheels: number; // 1–4, doar pentru montaj
+  wheels: number; // 1–4, pentru ambele servicii
   valves: boolean;
   extras: Record<string, number>; // id -> cantitate
 };
@@ -72,11 +72,14 @@ export const CALC_EXTRAS: { id: string; name: string; price: (r: string) => numb
 export function calcTotal(c: CalcInput) {
   const s = SIZES[c.size] ?? SIZES[0]!;
   const lines: [string, number][] = [];
-  if (c.service === "schimb") {
+  const w = Math.min(4, Math.max(1, c.wheels));
+  const unit = c.valves ? s[3] : s[1];
+  const wheelWord = w === 1 ? "roată" : `${w} roți`;
+  if (c.service === "schimb" && w === 4) {
     lines.push([c.valves ? "Schimb complet cu valve · 4 roți" : "Schimb complet · 4 roți", c.valves ? s[4] : s[2]]);
+  } else if (c.service === "schimb") {
+    lines.push([`Schimb ${wheelWord}${c.valves ? " cu valvă" : ""} · ${w} × ${unit} lei`, unit * w]);
   } else {
-    const w = Math.min(4, Math.max(1, c.wheels));
-    const unit = c.valves ? s[3] : s[1];
     lines.push([`Montat + echilibrat${c.valves ? " + valvă" : ""} · ${w} × ${unit} lei`, unit * w]);
   }
   for (const e of CALC_EXTRAS) {
