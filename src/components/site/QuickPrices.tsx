@@ -16,25 +16,26 @@ export function QuickPrices() {
   ];
 
   return (
-    <div data-service-reveal className="qp mt-5 overflow-hidden rounded-3xl border border-border bg-card">
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-border bg-surface px-4 py-3 sm:px-6">
-        <span className="text-[11px] font-black uppercase tracking-widest text-brand">Prețuri rapide</span>
-        <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+    <div data-service-reveal className="qp mt-4 overflow-hidden rounded-2xl border border-border bg-card">
+      <div className="flex items-center gap-2 border-b border-border bg-surface px-3 py-2 sm:px-5">
+        <span className="text-[10px] font-black uppercase tracking-widest text-brand">Prețuri rapide</span>
+        <span aria-hidden className="hidden h-3 w-px bg-border sm:block" />
+        <span className="hidden text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:inline">
           Alege dimensiunea jantei
         </span>
         <Link
           to="/preturi"
-          className="ml-auto inline-flex items-center gap-1 rounded-full border border-brand/30 bg-card px-3 py-1 text-xs font-black text-brand transition-colors hover:border-brand hover:bg-brand hover:text-brand-foreground dark:border-brand/50"
+          className="ml-auto inline-flex items-center gap-1 rounded-full border border-brand/30 bg-card px-2.5 py-0.5 text-[11px] font-black text-brand transition-colors hover:border-brand hover:bg-brand hover:text-brand-foreground dark:border-brand/50"
         >
-          Toate prețurile <ArrowRight className="size-3.5" />
+          Toate prețurile <ArrowRight className="size-3" />
         </Link>
       </div>
 
-      <div className="relative px-4 pt-4 sm:px-6">
+      <div className="relative px-3 pt-2.5 sm:px-5">
         <div
           role="group"
           aria-label="Dimensiunea jantei"
-          className="qp-chips -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0"
+          className="qp-chips -mx-3 flex gap-1.5 overflow-x-auto px-3 pb-0.5 sm:mx-0 sm:flex-wrap sm:px-0"
         >
           {SIZES.map((r, k) => (
             <button
@@ -42,7 +43,7 @@ export function QuickPrices() {
               type="button"
               onClick={() => setI(k)}
               aria-pressed={k === i}
-              className={`shrink-0 rounded-full border px-3.5 py-1.5 text-[13px] font-black tabular-nums transition-colors ${
+              className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-bold tabular-nums transition-colors ${
                 k === i
                   ? "border-brand bg-brand text-brand-foreground"
                   : "border-border bg-surface text-foreground hover:border-brand/60 hover:bg-brand-soft"
@@ -52,62 +53,62 @@ export function QuickPrices() {
             </button>
           ))}
         </div>
-        <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-card to-transparent sm:hidden" />
+        <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent sm:hidden" />
       </div>
 
-      <div className="px-4 pb-4 pt-3 sm:px-6">
-        <div key={`hero-${i}`} className="pr-pop qp-hero overflow-hidden rounded-2xl border border-brand/20 bg-brand-soft px-4 py-4 sm:px-5">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="text-[11px] font-black uppercase tracking-widest text-brand dark:text-card-foreground">
+      <div className="px-3 pb-3 pt-2 sm:px-5">
+        <div key={`hero-${i}`} className="pr-pop qp-hero flex items-center justify-between gap-2 rounded-xl border border-brand/20 bg-brand-soft px-3 py-2.5">
+          <div className="min-w-0">
+            <div className="truncate text-[10px] font-black uppercase tracking-widest text-brand dark:text-card-foreground">
               Schimb complet · set 4 roți
-            </span>
-            <span className="ml-auto rounded-full bg-brand px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-brand-foreground">
-              Cel mai cerut
-            </span>
+            </div>
+            <div className="mt-1 flex items-baseline gap-1">
+              <span className="text-3xl font-black leading-none tabular-nums text-brand sm:text-4xl">
+                {schimb}
+              </span>
+              <span className="text-[11px] font-black text-brand">lei</span>
+              <span className="ml-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                jantă {size === "C-uri" ? "C-uri" : `R${size}`}
+              </span>
+            </div>
           </div>
-          <div className="mt-2 flex items-end justify-between gap-3">
-            <span className="text-5xl font-black leading-none tabular-nums text-brand sm:text-6xl">
-              {schimb}
-              <span className="ml-1.5 text-base font-black sm:text-lg">lei</span>
-            </span>
-            <span className="pb-1 whitespace-nowrap text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-              jantă {size === "C-uri" ? "C-uri" : `R${size}`}
-            </span>
-          </div>
+          <span className="shrink-0 self-start rounded-full bg-brand px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-brand-foreground">
+            Cel mai cerut
+          </span>
         </div>
 
-        <div key={`rows-${i}`} className="pr-pop mt-3 divide-y divide-border overflow-hidden rounded-2xl border border-border">
+        <div key={`rows-${i}`} className="pr-pop mt-2 divide-y divide-border overflow-hidden rounded-xl border border-border">
           {rows.map(([t, sub, v]) => (
-            <div key={t} className="flex items-center justify-between gap-3 bg-card px-4 py-3">
-              <div className="min-w-0">
-                <div className="truncate text-[13px] font-bold text-foreground">{t}</div>
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{sub}</div>
+            <div key={t} className="flex items-center justify-between gap-3 bg-card px-3 py-2">
+              <div className="min-w-0 truncate">
+                <span className="text-[12px] font-bold text-foreground">{t}</span>
+                <span className="ml-1.5 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">{sub}</span>
               </div>
-              <span className="whitespace-nowrap text-lg font-black tabular-nums text-brand">
+              <span className="whitespace-nowrap text-[15px] font-black tabular-nums text-brand">
                 {v}
-                <span className="ml-0.5 text-[11px] font-bold">lei</span>
+                <span className="ml-0.5 text-[10px] font-bold">lei</span>
               </span>
             </div>
           ))}
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
-          <span className="text-[11px] font-black uppercase tracking-widest text-foreground">Reparații pană</span>
+        <div className="mt-3 flex items-center gap-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-foreground">Reparații pană</span>
           <span aria-hidden className="h-px flex-1 bg-border" />
-          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">preț fix</span>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground">preț fix</span>
         </div>
 
-        <div className="mt-2 grid grid-cols-3 gap-2">
+        <div className="mt-1.5 grid grid-cols-3 gap-1.5">
           {QUICK_REPAIRS.map((r, k) => {
             const Icon = REPAIR_ICONS[k] ?? CircleDashed;
             return (
-              <div key={r.name} className="qp-repair rounded-xl border border-border bg-surface px-2 py-3 text-center">
-                <Icon className="mx-auto size-4 shrink-0 text-brand" aria-hidden />
-                <div className="mt-1.5 text-[11px] font-black uppercase tracking-wide text-foreground">{r.name}</div>
-                <div className="mt-0.5 whitespace-nowrap text-[15px] font-black tabular-nums text-brand">
-                  {r.from && <span className="mr-0.5 align-middle text-[10px] font-bold uppercase text-muted-foreground">de la</span>}
+              <div key={r.name} className="qp-repair rounded-lg border border-border bg-surface px-1.5 py-2 text-center">
+                <Icon className="mx-auto size-3.5 shrink-0 text-brand" aria-hidden />
+                <div className="mt-1 truncate text-[10px] font-black uppercase tracking-wide text-foreground">{r.name}</div>
+                <div className="mt-0.5 whitespace-nowrap text-[14px] font-black tabular-nums text-brand">
+                  {r.from && <span className="mr-0.5 align-middle text-[9px] font-bold uppercase text-muted-foreground">de la</span>}
                   {r.price}
-                  <span className="ml-0.5 text-[10px] font-bold">lei</span>
+                  <span className="ml-0.5 text-[9px] font-bold">lei</span>
                 </div>
               </div>
             );
