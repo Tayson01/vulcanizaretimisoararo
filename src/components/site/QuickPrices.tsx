@@ -24,13 +24,13 @@ export function QuickPrices() {
         </span>
         <Link
           to="/preturi"
-          className="ml-auto inline-flex items-center gap-1 rounded-full border border-brand/25 bg-card px-3 py-1 text-xs font-black text-brand transition-colors hover:border-brand hover:bg-brand hover:text-brand-foreground"
+          className="ml-auto inline-flex items-center gap-1 rounded-full border border-brand/30 bg-card px-3 py-1 text-xs font-black text-brand transition-colors hover:border-brand hover:bg-brand hover:text-brand-foreground dark:border-brand/50"
         >
           Toate prețurile <ArrowRight className="size-3.5" />
         </Link>
       </div>
 
-      <div className="px-4 pt-4 sm:px-6">
+      <div className="relative px-4 pt-4 sm:px-6">
         <div
           role="group"
           aria-label="Dimensiunea jantei"
@@ -52,12 +52,13 @@ export function QuickPrices() {
             </button>
           ))}
         </div>
+        <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-card to-transparent sm:hidden" />
       </div>
 
       <div className="px-4 pb-4 pt-3 sm:px-6">
         <div key={`hero-${i}`} className="pr-pop qp-hero overflow-hidden rounded-2xl border border-brand/20 bg-brand-soft px-4 py-4 sm:px-5">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="text-[11px] font-black uppercase tracking-widest text-brand">
+            <span className="text-[11px] font-black uppercase tracking-widest text-brand dark:text-card-foreground">
               Schimb complet · set 4 roți
             </span>
             <span className="ml-auto rounded-full bg-brand px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-brand-foreground">
