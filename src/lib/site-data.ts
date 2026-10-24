@@ -254,6 +254,15 @@ export const stats = [
   { value: "100%", label: "Prețuri clare, fără costuri ascunse" },
 ];
 
+// Prețuri rapide afișate în secțiunea de servicii — aceleași valori din lista 2026.
+export const priceHighlights: { label: string; value: string }[] = [
+  { label: "Montat + echilibrat", value: "de la 50 lei" },
+  { label: "Schimb 4 roți", value: "de la 180 lei" },
+  { label: "Petic", value: "de la 80 lei" },
+  { label: "Ciupercă", value: "100 lei" },
+  { label: "Șnur", value: "50 lei" },
+];
+
 export const reviews = [
   {
     initials: "LS",
