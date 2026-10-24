@@ -16,7 +16,7 @@ export function QuickPrices() {
             Vezi toată lista de prețuri
           </span>
           <span className="block text-[11px] font-semibold text-muted-foreground">
-            Alege janta și afli totalul în 10 secunde
+            Calculator de prețuri și lista completă 2026
           </span>
         </span>
         <ArrowRight className="ml-auto size-4 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" aria-hidden />
