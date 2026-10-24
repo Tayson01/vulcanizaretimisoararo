@@ -14,6 +14,7 @@ import {
 import { Link } from "@tanstack/react-router";
 import { Btn } from "@/components/site/ui";
 import { PHONE, TEL } from "@/lib/site-data";
+import { PriceCalculator } from "@/components/site/PriceCalculator";
 import { EXTRA, REPAIRS, SINGLES, SIZES } from "@/lib/prices";
 
 function Lei({ v, big }: { v: number; big?: boolean }) {
@@ -36,6 +37,7 @@ const FACTS = [
 ];
 
 const ANCHORS = [
+  { href: "#calculator", label: "Calculator" },
   { href: "#montaj", label: "Montaj & schimb" },
   { href: "#reparatii", label: "Reparații" },
   { href: "#suplimentare", label: "Suplimentare" },
@@ -135,6 +137,8 @@ export function PriceList() {
           </span>
         </div>
       </div>
+
+      <PriceCalculator size={i} setSize={setI} />
 
       {/* ===== Montaj & schimb ===== */}
       <section id="montaj" className="scroll-mt-32">
