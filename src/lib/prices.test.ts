@@ -20,6 +20,10 @@ describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
     expect(REPAIRS[0]!.rows).toEqual([["10 cm", 80], ["12 cm", 120], ["20 cm", 170], ["25 cm", 200]]);
     expect(REPAIRS[1]!.price).toBe(100);
     expect(REPAIRS[2]!.price).toBe(50);
-    expect(QUICK_REPAIRS).toEqual(["Petic de la 80 lei", "Ciupercă 100 lei", "Șnur 50 lei"]);
+    expect(QUICK_REPAIRS).toEqual([
+      { name: "Petic", price: 80, from: true },
+      { name: "Ciupercă", price: 100, from: false },
+      { name: "Șnur", price: 50, from: false },
+    ]);
   });
 });
