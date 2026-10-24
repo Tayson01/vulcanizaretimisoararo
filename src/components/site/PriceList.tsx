@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, MessageCircle, ZoomIn } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { PriceCalculator } from "@/components/site/PriceCalculator";
 import { EXTRA, REPAIRS, SINGLES, SIZES } from "@/lib/prices";
+import { waLink } from "@/lib/site-data";
+import flaierMontaj from "@/assets/flaier-preturi-2026-montaj.jpeg.asset.json";
+import flaierServicii from "@/assets/flaier-preturi-2026-servicii.jpeg.asset.json";
 
 const sizeLabel = (r: string) => (r === "C-uri" ? "C-uri" : `R${r}`);
 
