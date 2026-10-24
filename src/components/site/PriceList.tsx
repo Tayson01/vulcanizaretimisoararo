@@ -225,14 +225,14 @@ export function PriceList() {
                     >
                       <th
                         scope="row"
-                        className={`px-4 py-3 text-left text-[13px] font-black tabular-nums sm:px-5 ${k === i ? "text-brand" : "text-foreground"}`}
+                        className={`px-2 py-3 text-left text-[12px] font-black tabular-nums sm:px-5 sm:text-[13px] ${k === i ? "text-brand" : "text-foreground"}`}
                       >
                         {sizeLabel(r[0])}
                       </th>
                       {r.slice(1).map((v, c) => (
                         <td
                           key={c}
-                          className={`px-3 py-3 text-right font-bold tabular-nums sm:px-4 ${k === i ? "text-brand" : "text-foreground"}`}
+                          className={`px-1.5 py-3 text-right text-[13px] font-bold tabular-nums sm:px-4 sm:text-sm ${k === i ? "text-brand" : "text-foreground"}`}
                         >
                           {v}
                         </td>
@@ -242,7 +242,7 @@ export function PriceList() {
                 </tbody>
               </table>
             </div>
-              <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-card to-transparent lg:hidden" />
+              <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 hidden w-10 bg-gradient-to-l from-card to-transparent sm:block lg:hidden" />
             </div>
           </div>
         </div>

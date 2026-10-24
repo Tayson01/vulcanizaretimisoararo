@@ -26,4 +26,11 @@ describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
       { name: "Șnur", price: 50, from: false },
     ]);
   });
+  test("banda rapidă nu anunță un preț diferit de lista completă", () => {
+    const [petic, ciuperca, snur] = QUICK_REPAIRS;
+    expect(petic.price).toBe(Math.min(...REPAIRS[0]!.rows.map(([, v]) => v)));
+    expect(ciuperca.price).toBe(REPAIRS[1]!.price);
+    expect(snur.price).toBe(REPAIRS[2]!.price);
+    expect(QUICK_REPAIRS.length).toBe(REPAIRS.length);
+  });
 });
