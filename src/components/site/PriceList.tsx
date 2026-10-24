@@ -206,9 +206,9 @@ export function PriceList() {
                 <caption className="sr-only">Prețuri pe dimensiuni de jantă, TVA inclus</caption>
                 <thead>
                   <tr className="border-b border-border text-[10px] font-black uppercase tracking-wider text-muted-foreground">
-                    <th scope="col" className="px-5 py-3 text-left">Jantă</th>
+                    <th scope="col" className="px-4 py-3 text-left sm:px-5">Jantă</th>
                     {COLS.map(([t, sub]) => (
-                      <th key={t} scope="col" className="px-4 py-3 text-right">
+                      <th key={t} scope="col" className="px-3 py-3 text-right sm:px-4">
                         <span className="block">{t}</span>
                         <span className="block font-bold normal-case tracking-normal opacity-70">{sub}</span>
                       </th>
@@ -224,14 +224,14 @@ export function PriceList() {
                     >
                       <th
                         scope="row"
-                        className={`px-5 py-3 text-left text-[13px] font-black tabular-nums ${k === i ? "text-brand" : "text-foreground"}`}
+                        className={`px-4 py-3 text-left text-[13px] font-black tabular-nums sm:px-5 ${k === i ? "text-brand" : "text-foreground"}`}
                       >
                         {sizeLabel(r[0])}
                       </th>
                       {r.slice(1).map((v, c) => (
                         <td
                           key={c}
-                          className={`px-4 py-3 text-right font-bold tabular-nums ${k === i ? "text-brand" : "text-foreground"}`}
+                          className={`px-3 py-3 text-right font-bold tabular-nums sm:px-4 ${k === i ? "text-brand" : "text-foreground"}`}
                         >
                           {v}
                         </td>
