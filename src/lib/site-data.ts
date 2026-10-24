@@ -284,7 +284,7 @@ export const reviews = [
 export const faqs = [
   {
     q: "Cât costă o intervenție la Vulcanizare Non Stop Timișoara?",
-    a: "În atelierul din Timișoara, prețul îl afli la telefon, înainte de lucrare. Pentru intervențiile mobile, tariful depinde de tipul lucrării și de distanță și îl primești la telefon înainte de plecare, fără surprize.",
+    a: "Prețurile sunt afișate pe site, la lista de prețuri 2026: montat + echilibrat de la 50 lei pe roată, schimb complet de la 180 lei setul, reparații de la 50 lei. Pentru intervențiile mobile, deplasarea din afara orașului se confirmă la telefon, în funcție de distanță.",
     category: "prețuri",
   },
   {
