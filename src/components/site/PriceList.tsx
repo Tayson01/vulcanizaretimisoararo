@@ -1,9 +1,20 @@
 import { useState } from "react";
-import { BadgeCheck, Phone, Receipt, Wrench } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Cable,
+  ChevronRight,
+  CircleDashed,
+  CircleDot,
+  Clock,
+  Phone,
+  Receipt,
+  Wrench,
+} from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Btn } from "@/components/site/ui";
 import { PHONE, TEL } from "@/lib/site-data";
 import { EXTRA, REPAIRS, SINGLES, SIZES } from "@/lib/prices";
-
 
 function Lei({ v, big }: { v: number; big?: boolean }) {
   return (
@@ -13,6 +24,29 @@ function Lei({ v, big }: { v: number; big?: boolean }) {
     </span>
   );
 }
+
+const sizeLabel = (r: string) => (r === "C-uri" ? "C-uri" : `R${r}`);
+
+const REPAIR_ICONS = [CircleDashed, CircleDot, Cable];
+
+const FACTS = [
+  { icon: Receipt, t: "TVA inclus", s: "toate prețurile" },
+  { icon: BadgeCheck, t: "Facturi", s: "persoane fizice și juridice" },
+  { icon: Clock, t: "Non-stop", s: "24/7, Str. Cloșca 33" },
+];
+
+const ANCHORS = [
+  { href: "#montaj", label: "Montaj & schimb" },
+  { href: "#reparatii", label: "Reparații" },
+  { href: "#suplimentare", label: "Suplimentare" },
+];
+
+const COLS: [string, string][] = [
+  ["Montat + echilibrat", "1 roată"],
+  ["Schimb complet", "4 roți"],
+  ["Cu valvă", "1 roată"],
+  ["Schimb cu valve", "4 roți"],
+];
 
 export function PriceList() {
   const [i, setI] = useState(3);
@@ -24,125 +58,279 @@ export function PriceList() {
   ];
 
   return (
-    <section id="preturi" className="scroll-mt-20 bg-background py-14 md:py-20">
-      <div className="mx-auto max-w-6xl px-5">
-        <div className="max-w-2xl">
-          <span className="text-xs font-black uppercase tracking-[0.2em] text-brand">Listă de prețuri 2026</span>
-          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-5xl">Prețuri clare, fără surprize</h2>
-          <p className="mt-3 text-muted-foreground">
-            Prețurile conțin TVA. Atelier non-stop pe Str. Cloșca nr. 33, Timișoara. Emitem facturi pentru persoane fizice și juridice.
-          </p>
-        </div>
+    <main className="bg-background">
+      {/* ===== Hero ===== */}
+      <section id="preturi" className="scroll-mt-20 border-b border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 pb-8 pt-8 sm:pb-12 sm:pt-12">
+          <nav aria-label="Rezultate" className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+            <Link to="/" className="transition-colors hover:text-brand">Acasă</Link>
+            <ChevronRight className="size-3 shrink-0" aria-hidden />
+            <span className="text-brand">Prețuri</span>
+          </nav>
 
-        {/* Panou principal — calculator de preț pe dimensiune */}
-        <div className="mt-8 rounded-3xl border border-border bg-card shadow-card">
-          <div className="p-5 sm:p-8">
-            <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Alege dimensiunea jantei</p>
-            <p className="mt-1 text-xs text-muted-foreground">Autoturisme, SUV / 4×4, microbuze și camionete până la 3,5 t</p>
-            <div className="mt-4 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden [scrollbar-width:none]">
-              {SIZES.map((r, k) => (
-                <button
-                  key={r[0]}
-                  type="button"
-                  onClick={() => setI(k)}
-                  aria-pressed={k === i}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-sm font-black tabular-nums transition-colors ${
-                    k === i
-                      ? "border-brand bg-brand text-brand-foreground"
-                      : "border-border bg-surface text-foreground hover:border-brand/60 hover:bg-brand-soft"
-                  }`}
-                >
-                  {r[0] === "C-uri" ? "C-uri" : `R${r[0]}`}
-                </button>
-              ))}
+          <div className="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-brand">Listă de prețuri 2026</span>
+              <h1 className="mt-2 text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl">
+                Prețuri clare,
+                <br />
+                fără surprize
+              </h1>
+              <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+                Alege dimensiunea jantei și vezi imediat cât plătești. Toate prețurile conțin TVA.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {ANCHORS.map((a) => (
+                  <a
+                    key={a.href}
+                    href={a.href}
+                    className="rounded-full border border-border bg-card px-4 py-2 text-xs font-black uppercase tracking-wider text-foreground transition-colors hover:border-brand hover:text-brand"
+                  >
+                    {a.label}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div key={`hero-${i}`} className="pr-pop mt-6 rounded-2xl bg-brand-soft p-5 sm:p-6">
+            <ul className="grid gap-2 sm:grid-cols-3 lg:w-[360px] lg:shrink-0">
+              {FACTS.map((f) => (
+                <li key={f.t} className="rounded-2xl border border-border bg-card p-4">
+                  <f.icon className="size-4 text-brand" aria-hidden />
+                  <div className="mt-2 text-sm font-black uppercase tracking-wide text-foreground">{f.t}</div>
+                  <div className="mt-0.5 text-[11px] font-semibold text-muted-foreground">{f.s}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Bară fixă cu dimensiuni ===== */}
+      <div className="sticky top-16 z-40 border-b border-border bg-background/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-5 py-3">
+          <span className="text-[11px] font-black uppercase tracking-widest text-brand">Dimensiunea jantei</span>
+          <div
+            role="group"
+            aria-label="Dimensiunea jantei"
+            className="qp-chips -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0"
+          >
+            {SIZES.map((r, k) => (
+              <button
+                key={r[0]}
+                type="button"
+                onClick={() => setI(k)}
+                aria-pressed={k === i}
+                className={`shrink-0 rounded-full border px-3.5 py-1.5 text-[13px] font-black tabular-nums transition-colors ${
+                  k === i
+                    ? "border-brand bg-brand text-brand-foreground"
+                    : "border-border bg-surface text-foreground hover:border-brand/60 hover:bg-brand-soft"
+                }`}
+              >
+                {sizeLabel(r[0])}
+              </button>
+            ))}
+          </div>
+          <span className="ml-auto hidden whitespace-nowrap text-[11px] font-black uppercase tracking-wider text-muted-foreground lg:inline">
+            {sizeLabel(s[0])} · schimb 4 roți <span className="tabular-nums text-brand">{s[2]} lei</span>
+          </span>
+        </div>
+      </div>
+
+      {/* ===== Montaj & schimb ===== */}
+      <section id="montaj" className="scroll-mt-32">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+          <h2 className="flex items-center gap-2 text-2xl font-black tracking-tight sm:text-3xl">
+            <Wrench className="size-5 shrink-0 text-brand" aria-hidden /> Montaj & schimb anvelope
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            Autoturisme, SUV / 4×4, microbuze și camionete până la 3,5 t.
+          </p>
+
+          <div className="mt-6 grid gap-3 lg:grid-cols-[1.1fr_1fr]">
+            <div key={`hero-${i}`} className="pr-pop qp-hero overflow-hidden rounded-3xl border border-brand/20 bg-brand-soft p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="rounded-full bg-brand px-3 py-1 text-[10px] font-black uppercase tracking-wider text-brand-foreground">
                   Cel mai cerut
                 </span>
-                <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Schimb complet · set 4 roți</p>
+                <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+                  Schimb complet · set 4 roți
+                </span>
               </div>
-              <div className="mt-3 flex items-end gap-2">
-                <span className="text-6xl font-black tabular-nums leading-none tracking-tight text-brand sm:text-7xl">{s[2]}</span>
-                <span className="pb-1 text-lg font-bold text-muted-foreground">lei</span>
+              <div className="mt-4 flex items-end gap-2">
+                <span className="text-7xl font-black leading-none tracking-tight tabular-nums text-brand sm:text-8xl">
+                  {s[2]}
+                </span>
+                <span className="pb-2 text-xl font-black text-brand">lei</span>
               </div>
-              <p className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                <BadgeCheck className="size-4 shrink-0 text-brand" /> Montat + echilibrat pe toate cele 4 roți
+              <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-foreground">
+                <BadgeCheck className="size-4 shrink-0 text-brand" aria-hidden />
+                Montat + echilibrat pe toate cele 4 roți · jantă {sizeLabel(s[0])}
               </p>
             </div>
 
-            <div className="mt-3 divide-y divide-border rounded-2xl border border-border">
+            <div key={`rows-${i}`} className="pr-pop divide-y divide-border overflow-hidden rounded-3xl border border-border bg-card">
               {secondary.map(([t, sub, v]) => (
-                <div key={`${t}-${i}`} className="pr-pop flex items-center justify-between gap-3 px-5 py-4">
+                <div key={t} className="flex items-center justify-between gap-3 px-5 py-5">
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-bold text-foreground">{t}</div>
+                    <div className="truncate text-sm font-black text-foreground">{t}</div>
                     <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{sub}</div>
                   </div>
-                  <span className="whitespace-nowrap text-xl font-black tabular-nums text-brand">
-                    {v}<span className="ml-0.5 text-xs font-bold">lei</span>
+                  <span className="whitespace-nowrap text-2xl font-black tabular-nums text-brand">
+                    {v}
+                    <span className="ml-1 text-xs font-bold">lei</span>
                   </span>
                 </div>
               ))}
+              <div className="bg-surface px-5 py-4">
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-brand hover:underline"
+                >
+                  Vezi și prețurile rapide de pe prima pagină <ArrowRight className="size-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Tot tabelul de dimensiuni */}
+          <div className="mt-4 overflow-hidden rounded-3xl border border-border bg-card">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-border bg-surface px-5 py-3">
+              <h3 className="text-sm font-black uppercase tracking-widest text-foreground">Toate dimensiunile</h3>
+              <span className="ml-auto text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                apasă pe un rând
+              </span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[680px] text-sm">
+                <caption className="sr-only">Prețuri pe dimensiuni de jantă, TVA inclus</caption>
+                <thead>
+                  <tr className="border-b border-border text-[10px] font-black uppercase tracking-wider text-muted-foreground">
+                    <th scope="col" className="px-5 py-3 text-left">Jantă</th>
+                    {COLS.map(([t, sub]) => (
+                      <th key={t} scope="col" className="px-4 py-3 text-right">
+                        <span className="block">{t}</span>
+                        <span className="block font-bold normal-case tracking-normal opacity-70">{sub}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {SIZES.map((r, k) => (
+                    <tr
+                      key={r[0]}
+                      onClick={() => setI(k)}
+                      className={`cursor-pointer transition-colors ${k === i ? "bg-brand-soft" : "hover:bg-surface"}`}
+                    >
+                      <th
+                        scope="row"
+                        className={`px-5 py-3 text-left text-[13px] font-black tabular-nums ${k === i ? "text-brand" : "text-foreground"}`}
+                      >
+                        {sizeLabel(r[0])}
+                      </th>
+                      {r.slice(1).map((v, c) => (
+                        <td
+                          key={c}
+                          className={`px-4 py-3 text-right font-bold tabular-nums ${k === i ? "text-brand" : "text-foreground"}`}
+                        >
+                          {v}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Reparații */}
-        <h3 className="mt-12 flex items-center gap-2 text-xl font-black tracking-tight sm:text-2xl">
-          <Wrench className="size-5 text-brand" /> Reparații anvelope
-        </h3>
-        <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          {REPAIRS.map((r) => (
-            <div key={r.name} className="rounded-2xl border border-border bg-card p-5 shadow-card">
-              <div className="text-lg font-black text-foreground">{r.name}</div>
-              {r.rows ? (
+      {/* ===== Reparații ===== */}
+      <section id="reparatii" className="scroll-mt-32 border-t border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+          <h2 className="text-2xl font-black tracking-tight sm:text-3xl">Reparații anvelope</h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            Petec, ciupercă sau șnur — în funcție de zona și de mărimea tăieturii. Prețuri fixe, fără de dimensiunea jantei.
+          </p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {REPAIRS.map((r, k) => {
+              const Icon = REPAIR_ICONS[k] ?? CircleDashed;
+              return (
+                <div key={r.name} className="rounded-3xl border border-border bg-card p-5 shadow-card">
+                  <div className="flex items-center gap-2.5">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand">
+                      <Icon className="size-4" aria-hidden />
+                    </span>
+                    <span className="text-lg font-black uppercase tracking-wide text-foreground">{r.name}</span>
+                  </div>
+                  {r.rows ? (
+                    <ul className="mt-4 divide-y divide-border">
+                      {r.rows.map(([a, v]) => (
+                        <li key={a} className="flex items-center justify-between py-2.5 text-sm font-semibold">
+                          <span className="text-muted-foreground">{a}</span>
+                          <Lei v={v} />
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="mt-4 flex items-end justify-between border-b border-border pb-3">
+                      <Lei v={r.price!} big />
+                      <span className="pb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        / bucată
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Suplimentare ===== */}
+      <section id="suplimentare" className="scroll-mt-32 border-t border-border">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+          <h2 className="text-2xl font-black tracking-tight sm:text-3xl">Servicii suplimentare</h2>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {EXTRA.map((e) => (
+              <div key={e.name} className="rounded-3xl border border-border bg-card p-5 shadow-card">
+                <div className="text-sm font-black uppercase tracking-wide text-foreground">{e.name}</div>
                 <ul className="mt-3 divide-y divide-border">
-                  {r.rows.map(([a, v]) => (
-                    <li key={a} className="flex items-center justify-between py-2 text-sm font-semibold">
-                      <span>{a}</span><Lei v={v} />
+                  {e.rows.map(([a, v]) => (
+                    <li key={a} className="flex items-center justify-between py-2.5 text-sm font-semibold">
+                      <span className="text-muted-foreground">{a}</span>
+                      <Lei v={v} />
                     </li>
                   ))}
                 </ul>
-              ) : (
-                <div className="mt-3"><Lei v={r.price!} big /><span className="ml-1 text-xs text-muted-foreground">/ bucată</span></div>
-              )}
-            </div>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
 
-        {/* Suplimentare */}
-        <h3 className="mt-12 text-xl font-black tracking-tight sm:text-2xl">Servicii suplimentare</h3>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {EXTRA.map((e) => (
-            <div key={e.name} className="rounded-2xl border border-border bg-card p-5 shadow-card">
-              <div className="font-black text-foreground">{e.name}</div>
-              <ul className="mt-3 divide-y divide-border">
-                {e.rows.map(([a, v]) => (
-                  <li key={a} className="flex items-center justify-between py-2 text-sm font-semibold">
-                    <span>{a}</span><Lei v={v} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            {SINGLES.map(([n, v]) => (
+              <div key={n} className="flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-card">
+                <span className="text-sm font-bold text-foreground">{n}</span>
+                <Lei v={v} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {SINGLES.map(([n, v]) => (
-            <div key={n} className="flex items-center justify-between rounded-2xl border border-border bg-card px-5 py-4 shadow-card">
-              <span className="text-sm font-bold text-foreground">{n}</span><Lei v={v} />
-            </div>
-          ))}
-        </div>
+      </section>
 
-        <div className="mt-8 flex flex-col items-start gap-3 rounded-3xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
-            <Receipt className="size-5 shrink-0 text-brand" /> Facturi pentru persoane fizice și juridice. Plată card, cash sau transfer.
+      {/* ===== Facturi + apel ===== */}
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:py-10">
+          <p className="flex items-center gap-2.5 text-sm font-semibold text-foreground">
+            <Receipt className="size-5 shrink-0 text-brand" aria-hidden />
+            Facturi pentru persoane fizice și juridice. Plată card, cash sau transfer.
           </p>
-          <Btn href={`tel:${TEL}`} className="justify-center"><Phone className="size-4" /> {PHONE}</Btn>
+          <Btn href={`tel:${TEL}`} className="justify-center">
+            <Phone className="size-4" /> {PHONE}
+          </Btn>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
