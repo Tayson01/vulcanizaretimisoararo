@@ -49,7 +49,7 @@ function Lei({ v, big }: { v: number; big?: boolean }) {
 
 export function PriceList() {
   const [i, setI] = useState(3);
-  const s = SIZES[i];
+  const s = SIZES[i] ?? SIZES[0]!;
   const tiles: [string, string, number][] = [
     ["Montat + echilibrat", "1 roată", s[1]],
     ["Schimb complet", "set 4 roți", s[2]],
