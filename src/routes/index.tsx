@@ -18,6 +18,7 @@ import { FAQSection } from "@/components/site/FAQSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { InterventionsGallery } from "@/components/site/InterventionsGallery";
 import { BASE, MAPS, PHONE, TEL, WA, zones } from "@/lib/site-data";
+import { PriceList } from "@/components/site/PriceList";
 
 
 export const Route = createFileRoute("/")({
@@ -232,6 +233,7 @@ function Index() {
       <ServicesSection />
 
       {/* Preț clar */}
+      <PriceList />
 
 
 
