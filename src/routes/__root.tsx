@@ -4,9 +4,11 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
+
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -132,8 +134,31 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function useHashScroll() {
+  const location = useLocation();
+  useEffect(() => {
+    const id = location.hash.replace("#", "");
+    if (!id) return;
+    let tries = 0;
+    let timer = 0;
+    const attempt = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+      if (tries++ < 8) timer = window.setTimeout(attempt, 120);
+    };
+    timer = window.setTimeout(attempt, 60);
+    return () => window.clearTimeout(timer);
+  }, [location.href]);
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useHashScroll();
+
+
 
   return (
     <QueryClientProvider client={queryClient}>

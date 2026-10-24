@@ -51,7 +51,9 @@ function ServiciiPage() {
             </span>
             <h2 className="mt-5 text-lg font-bold">{s.title}</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            <p className="mt-3 text-sm font-semibold">{s.price}</p>
+            <p className="mt-3 text-lg font-black tabular-nums text-brand">{s.price}</p>
+            {s.priceNote ? <p className="text-xs text-muted-foreground">{s.priceNote}</p> : null}
+
             <BtnLink
               to="/servicii/$slug"
               params={{ slug: s.slug }}

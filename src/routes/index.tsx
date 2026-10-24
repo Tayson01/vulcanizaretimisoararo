@@ -135,7 +135,7 @@ function Index() {
                 </Btn>
                 <p className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
                   <Clock className="size-3.5 text-brand" />
-                  Sosire medie 15–30 min · preț stabilit la telefon, fără surprize
+                  Sosire medie 15–30 min · prețuri clare, fără surprize
                 </p>
                 <div className="grid grid-cols-2 gap-2.5">
                   <Btn href={MAPS} target="_blank" rel="noreferrer" variant="ghost" className="group min-h-13 justify-center px-3 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-card">

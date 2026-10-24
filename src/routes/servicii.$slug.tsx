@@ -1,5 +1,6 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
-import { Check, Clock, Phone, Tag } from "lucide-react";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowRight, Check, Clock, Phone, Receipt, Tag } from "lucide-react";
+
 
 import { Btn, BtnLink, SectionLabel } from "@/components/site/ui";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/servicii/$slug")({
     const s = loaderData?.service;
     const title = s ? `${s.title} în Timișoara — Vulcanizare Non Stop Timișoara` : "Serviciu — Vulcanizare Non Stop Timișoara";
     const description = s
-      ? `${s.desc} Preț la telefon, durată ${s.duration}. Sună la ${PHONE}.`
+      ? `${s.desc} ${s.price}, durată ${s.duration}. Sună la ${PHONE}.`
       : "Vulcanizare non-stop în Timișoara și intervenții mobile tot județul Timiș și pe A1 (Nădlac – Margina).";
     return {
       meta: [
@@ -55,7 +56,9 @@ function ServicePage() {
           <p className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
             <Tag className="size-4 text-brand" /> Tarif
           </p>
-          <p className="mt-1 text-lg font-bold">{service.price}</p>
+          <p className="mt-1 text-2xl font-black tabular-nums text-brand">{service.price}</p>
+          {service.priceNote ? <p className="mt-1 text-xs text-muted-foreground">{service.priceNote}</p> : null}
+
         </div>
         <div className="rounded-2xl border border-border bg-card p-5">
           <p className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
@@ -64,6 +67,33 @@ function ServicePage() {
           <p className="mt-1 text-lg font-bold">{service.duration}</p>
         </div>
       </div>
+
+      {service.pricing ? (
+        <div className="mt-4 rounded-2xl border border-border bg-card p-5">
+          <p className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+            <Receipt className="size-4 text-brand" /> Ce plătești
+          </p>
+          <ul className="mt-3 divide-y divide-border">
+            {service.pricing.map((p) => (
+              <li key={p.label} className="flex items-center justify-between gap-4 py-2.5 text-sm">
+                <span className="font-semibold text-foreground">
+                  {p.label}
+                  {p.note ? <span className="ml-1 text-xs font-normal text-muted-foreground">· {p.note}</span> : null}
+                </span>
+                <span className="whitespace-nowrap font-black tabular-nums text-brand">{p.value}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/"
+            hash="preturi"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline"
+          >
+            Vezi lista completă de prețuri <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      ) : null}
+
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         <div>
