@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Cable, CircleDashed, CircleDot } from "lucide-react";
+import { ArrowRight, Cable, Calculator, CircleDashed, CircleDot } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { QUICK_REPAIRS, SIZES } from "@/lib/prices";
 
@@ -8,7 +8,7 @@ const REPAIR_ICONS = [CircleDashed, CircleDot, Cable];
 export function QuickPrices() {
   const [i, setI] = useState(3);
   const s = SIZES[i] ?? SIZES[0]!;
-  const [size, montat, schimb, , schimbValva] = s;
+  const [, montat, , , schimbValva] = s;
 
   const rows: [string, string, number][] = [
     ["Montat + echilibrat", "1 roată", montat],
@@ -57,25 +57,23 @@ export function QuickPrices() {
       </div>
 
       <div className="px-3 pb-3 pt-2 sm:px-5">
-        <div key={`hero-${i}`} className="pr-pop qp-hero flex items-center justify-between gap-2 rounded-xl border border-brand/20 bg-brand-soft px-3 py-2.5">
-          <div className="min-w-0">
-            <div className="truncate text-[10px] font-black uppercase tracking-widest text-brand dark:text-card-foreground">
-              Schimb complet · set 4 roți
-            </div>
-            <div className="mt-1 flex items-baseline gap-1">
-              <span className="text-3xl font-black leading-none tabular-nums text-brand sm:text-4xl">
-                {schimb}
-              </span>
-              <span className="text-[11px] font-black text-brand">lei</span>
-              <span className="ml-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                jantă {size === "C-uri" ? "C-uri" : `R${size}`}
-              </span>
-            </div>
-          </div>
-          <span className="shrink-0 self-start rounded-full bg-brand px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-brand-foreground">
-            Cel mai cerut
+        <Link
+          to="/preturi"
+          className="qp-cta group flex items-center gap-3 rounded-xl border border-brand/25 bg-brand-soft px-3 py-2.5 transition-colors hover:border-brand"
+        >
+          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-brand text-brand-foreground">
+            <Calculator className="size-4" aria-hidden />
           </span>
-        </div>
+          <span className="min-w-0">
+            <span className="block text-[13px] font-black uppercase tracking-wide text-foreground">
+              Vezi toată lista de prețuri
+            </span>
+            <span className="block text-[11px] font-semibold text-muted-foreground">
+              Alege janta și afli totalul în 10 secunde
+            </span>
+          </span>
+          <ArrowRight className="ml-auto size-4 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" aria-hidden />
+        </Link>
 
         <div key={`rows-${i}`} className="pr-pop mt-2 divide-y divide-border overflow-hidden rounded-xl border border-border">
           {rows.map(([t, sub, v]) => (
