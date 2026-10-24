@@ -143,7 +143,7 @@ export function PriceCalculator({ size, setSize }: { size: number; setSize: (i: 
                   className="rounded-xl bg-brand py-3 text-center text-sm font-black uppercase tracking-wider text-brand-foreground transition-opacity hover:opacity-90">
                   Trimite pe WhatsApp
                 </a>
-                <a href={TEL} className="inline-flex items-center justify-center gap-2 rounded-xl border border-border py-3 text-sm font-black uppercase tracking-wider hover:border-brand hover:text-brand">
+                <a href={`tel:${TEL}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-border py-3 text-sm font-black uppercase tracking-wider hover:border-brand hover:text-brand">
                   <Phone className="size-4" /> Sună acum
                 </a>
               </div>
