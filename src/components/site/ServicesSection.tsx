@@ -86,7 +86,7 @@ export function ServicesSection() {
                 </ul>
                 </div>
                 <div className="mt-6 grid gap-4 border-t border-border pt-5 sm:flex sm:items-center sm:justify-between">
-                <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground"><Clock className="size-4 shrink-0 text-brand" />{mobile.duration}</div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-semibold text-muted-foreground"><span className="flex items-center gap-2"><Clock className="size-4 shrink-0 text-brand" />{mobile.duration}</span><span className="text-[15px] font-black tabular-nums text-brand">{mobile.price}</span></div>
                 <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 sm:flex">
                   <Btn href={`tel:${TEL}`} className="svc-call min-w-0 rounded-lg px-3 text-[13px] font-bold sm:px-5"><Phone className="size-4 shrink-0" /><span className="tabular-nums">{PHONE}</span></Btn>
                   <BtnLink to="/servicii/$slug" params={{ slug: mobile.slug }} variant="ghost" className="rounded-lg px-3 text-[13px] sm:px-5">Detalii<ArrowRight className="size-4" /></BtnLink>
@@ -108,7 +108,7 @@ export function ServicesSection() {
                   <ul className="svc-benefits my-5 space-y-2.5">
                     {service.bullets.slice(0, 3).map((bullet) => <li key={bullet} className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground"><Check className="mt-0.5 size-3.5 shrink-0 text-brand" strokeWidth={2.5} /><span>{bullet}</span></li>)}
                   </ul>
-                  <div className="mt-auto flex items-center gap-2 border-t border-border pt-4 text-[11px] font-semibold text-muted-foreground"><Clock className="size-3.5 shrink-0 text-brand" /><span>{service.duration}</span></div>
+                  <div className="mt-auto flex items-center gap-2 border-t border-border pt-4 text-[11px] font-semibold text-muted-foreground"><Clock className="size-3.5 shrink-0 text-brand" /><span>{service.duration}</span><span className="ml-auto whitespace-nowrap text-[13px] font-black tabular-nums text-brand">{service.price}</span></div>
                   <div className="mt-4 flex items-center justify-between text-xs font-bold"><span className="svc-details">Vezi serviciul</span><span className="svc-arrow grid size-8 place-items-center rounded-md bg-surface text-brand"><ArrowUpRight className="size-4" /></span></div>
                 </Link>
               ))}
