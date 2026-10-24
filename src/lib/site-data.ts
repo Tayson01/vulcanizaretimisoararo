@@ -51,12 +51,16 @@ export const services: Service[] = [
     desc: "Atelier deschis 24/24 pe Str. Cloșca 33, Timișoara — vii oricând, fără programare.",
     intro:
       "Atelierul nostru din Timișoara, pe Str. Cloșca 33, este deschis zi și noapte, inclusiv în weekend și de sărbători. Vii cu mașina oricând și rezolvăm pe loc pene, montaj, echilibrare sau schimb de anvelope.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
-    priceNote: "fără programare, 24/24",
+    price: "de la 50 lei",
+    priceFrom: "50 lei",
+    priceNote: "montat + echilibrat, 1 roată",
     pricing: [
-      { label: "Reparație pană", value: "la telefon", note: "în funcție de defect" },
+      { label: "Montat + echilibrat", value: "de la 50 lei", note: "1 roată" },
+      { label: "Schimb complet", value: "de la 180 lei", note: "set 4 roți" },
+      { label: "Reparație pană", value: "de la 50 lei", note: "șnur, ciupercă sau petic" },
+      { label: "Dejantat roată", value: "de la 15 lei", note: "în funcție de jantă" },
     ],
+
     duration: "15–60 minute, în funcție de lucrare",
     bullets: [
       "Deschis 24/24, 7 zile din 7",
@@ -78,14 +82,16 @@ export const services: Service[] = [
     desc: "Intervenim non-stop pe A1, DN6, DN69 și în toată zona Timișoarei, indiferent de oră.",
     intro:
       "Rămâi cu pana pe autostradă sau pe drum național? Venim la tine cu duba de intervenție, complet echipată, la orice oră din zi sau din noapte. Vulcanizarea mobilă rezolvă pe teren, 24/24, fără să îți muți mașina.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
+    price: "lucrare de la 50 lei",
+    priceFrom: "50 lei",
     priceNote: "deplasare inclusă în oraș",
     pricing: [
-      { label: "Timișoara oraș", value: "la telefon", note: "deplasare inclusă" },
-      { label: "A1 / DN6 / DN69 / Centură", value: "la telefon", note: "autostradă & drum național" },
-      { label: "Camioane & utilitare", value: "personalizat", note: "contracte flote" },
+      { label: "Reparație pană pe loc", value: "de la 50 lei", note: "șnur, ciupercă sau petic" },
+      { label: "Montat + echilibrat", value: "de la 50 lei", note: "1 roată" },
+      { label: "Schimb set 4 roți", value: "de la 180 lei", note: "set" },
+      { label: "Deplasare în afara orașului", value: "la telefon", note: "după distanță" },
     ],
+
     duration: "20–40 minute pe loc",
     bullets: [
       "Intervenții pe A1, DN6, DN69, DN59, Centura Timișoarei și drumurile județene",
@@ -107,9 +113,16 @@ export const services: Service[] = [
     desc: "Pene sau valve defecte — reparate la fața locului, cu vulcanizarea mobilă.",
     intro:
       "Reparăm pana direct acolo unde ești: petec, ciupercă sau șnur, schimb de valvă sau resigilare jantă. Anvelopa rămâne sigură pentru rulaj normal, cu garanție pentru lucrare.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
-    priceNote: "reparație simplă pe loc",
+    price: "de la 50 lei",
+    priceFrom: "50 lei",
+    priceNote: "reparație pe loc, per roată",
+    pricing: [
+      { label: "Șnur", value: "50 lei", note: "reparație rapidă" },
+      { label: "Ciupercă", value: "100 lei", note: "per roată" },
+      { label: "Petic", value: "80–200 lei", note: "defect de 10–25 cm" },
+      { label: "Schimb valvă", value: "de la 30 lei", note: "standard, C-uri sau mecanică" },
+    ],
+
     duration: "15–30 minute",
     bullets: [
       "Petec, ciupercă sau șnur, după tipul defectului",
@@ -130,9 +143,16 @@ export const services: Service[] = [
     desc: "Montaj vară/iarnă direct acasă sau la birou, fără timpi de așteptare.",
     intro:
       "Venim cu utilajul mobil de montat și echilibrat direct în curtea ta sau în parcarea de la birou. Schimbăm setul sezonier în aproximativ o oră, fără să pierzi timpul la coadă în service.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
-    priceNote: "set de 4 anvelope",
+    price: "de la 180 lei",
+    priceFrom: "180 lei",
+    priceNote: "set 4 roți, la domiciliu",
+    pricing: [
+      { label: "Schimb complet", value: "de la 180 lei", note: "set 4 roți" },
+      { label: "Schimb cu valve", value: "de la 250 lei", note: "set 4 roți" },
+      { label: "Montat + echilibrat", value: "de la 50 lei", note: "1 roată" },
+      { label: "Montat + echilibrat + valvă", value: "de la 70 lei", note: "1 roată" },
+    ],
+
     duration: "45–75 minute pentru un set complet",
     bullets: [
       "Montaj și demontaj pe jantă, cu mașină mobilă",
@@ -154,9 +174,16 @@ export const services: Service[] = [
     desc: "Echilibrare electronică precisă pentru rulare lină și uzură uniformă.",
     intro:
       "Vibrațiile în volan la 90–120 km/h vin aproape mereu de la roți neechilibrate. Facem echilibrare electronică cu aparatură mobilă, direct la tine, cu contragreutăți adezive sau cu clemă.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
-    priceNote: "per roată",
+    price: "de la 50 lei",
+    priceFrom: "50 lei",
+    priceNote: "montat + echilibrat, 1 roată",
+    pricing: [
+      { label: "Montat + echilibrat", value: "de la 50 lei", note: "1 roată" },
+      { label: "Montat anvelopă pe jantă", value: "de la 30 lei", note: "fără echilibrare" },
+      { label: "Dejantat roată", value: "de la 15 lei", note: "în funcție de jantă" },
+      { label: "Verificat roată", value: "30 lei", note: "presiune și stare" },
+    ],
+
     duration: "10 minute pe roată",
     bullets: [
       "Echilibrare pentru jante de aluminiu și de oțel",
@@ -178,9 +205,16 @@ export const services: Service[] = [
     desc: "Intervenții pentru TIR-uri și autoutilitare, contracte pentru flote.",
     intro:
       "Avem echipament special pentru camioane, autotrenuri și autoutilitare: pistoale de impact de mare cuplu, cricuri de tonaj și anvelope de intervenție. Lucrăm cu transportatori și flote pe bază de contract.",
-    price: "Preț la telefon",
-    priceFrom: "Preț la telefon",
-    priceNote: "contracte flote",
+    price: "de la 75 lei",
+    priceFrom: "75 lei",
+    priceNote: "roată C, montat + echilibrat",
+    pricing: [
+      { label: "Montat + echilibrat", value: "75 lei", note: "1 roată C" },
+      { label: "Schimb complet", value: "300 lei", note: "set 4 roți C" },
+      { label: "Montat + echilibrat + valvă", value: "100 lei", note: "1 roată C" },
+      { label: "Valvă C-uri", value: "50 lei", note: "per bucată" },
+    ],
+
     duration: "30–60 minute pe roată",
     bullets: [
       "Intervenții pe A1, Centura Timișoarei și în zonele industriale din jur",
