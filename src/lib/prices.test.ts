@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { QUICK_REPAIRS, REPAIRS, SIZES } from "./prices";
+import { CALC_EXTRAS, QUICK_REPAIRS, REPAIRS, SIZES, calcTotal, faraEchilibratPrice } from "./prices";
 
 const row = (size: string) => SIZES.find((r) => r[0] === size)!;
 
