@@ -50,4 +50,9 @@ describe("calculator", () => {
   it("dejantat R22 = 25 lei/roată", () => {
     expect(calcTotal({ size: 9, service: "montaj", wheels: 1, valves: false, extras: { dejantat: 4 } }).total).toBe(90 + 100);
   });
+  it("schimb pe 1–3 roți se facturează la prețul pe roată", () => {
+    expect(calcTotal({ size: 3, service: "schimb", wheels: 2, valves: false, extras: {} }).total).toBe(120);
+    expect(calcTotal({ size: 3, service: "schimb", wheels: 3, valves: true, extras: {} }).total).toBe(240);
+    expect(calcTotal({ size: 7, service: "schimb", wheels: 1, valves: false, extras: {} }).total).toBe(80);
+  });
 });
