@@ -36,3 +36,17 @@ describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
     expect(QUICK_REPAIRS.length).toBe(REPAIRS.length);
   });
 });
+
+import { calcTotal } from "./prices";
+describe("calculator", () => {
+  it("schimb R16 = 210 lei, cu valve 260", () => {
+    expect(calcTotal({ size: 3, service: "schimb", wheels: 4, valves: false, extras: {} }).total).toBe(210);
+    expect(calcTotal({ size: 3, service: "schimb", wheels: 4, valves: true, extras: {} }).total).toBe(260);
+  });
+  it("montaj 2 roți R20 + șnur = 2×80 + 50", () => {
+    expect(calcTotal({ size: 7, service: "montaj", wheels: 2, valves: false, extras: { snur: 1 } }).total).toBe(210);
+  });
+  it("dejantat R22 = 25 lei/roată", () => {
+    expect(calcTotal({ size: 9, service: "montaj", wheels: 1, valves: false, extras: { dejantat: 4 } }).total).toBe(90 + 100);
+  });
+});
