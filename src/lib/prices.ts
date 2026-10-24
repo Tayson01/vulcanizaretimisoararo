@@ -37,4 +37,8 @@ export const SINGLES: [string, number][] = [
 ];
 
 // Reparații care nu depind de dimensiunea jantei — afișate în banda „Prețuri rapide”.
-export const QUICK_REPAIRS = ["Petic de la 80 lei", "Ciupercă 100 lei", "Șnur 50 lei"];
+export const QUICK_REPAIRS = [
+  { name: "Petic", price: 80, from: true },
+  { name: "Ciupercă", price: 100, from: false },
+  { name: "Șnur", price: 50, from: false },
+];

@@ -26,9 +26,5 @@ export const Route = createFileRoute("/preturi")({
 });
 
 function PreturiPage() {
-  return (
-    <main>
-      <PriceList />
-    </main>
-  );
+  return <PriceList />;
 }
