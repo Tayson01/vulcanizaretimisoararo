@@ -197,11 +197,12 @@ export function PriceList() {
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-border bg-surface px-5 py-3">
               <h3 className="text-sm font-black uppercase tracking-widest text-foreground">Toate dimensiunile</h3>
               <span className="ml-auto text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                apasă pe un rând
+                apasă pe un rând <span className="lg:hidden">· derulează →</span>
               </span>
             </div>
+            <div className="relative">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[680px] text-sm">
+              <table className="w-full min-w-[620px] text-sm">
                 <caption className="sr-only">Prețuri pe dimensiuni de jantă, TVA inclus</caption>
                 <thead>
                   <tr className="border-b border-border text-[10px] font-black uppercase tracking-wider text-muted-foreground">
@@ -239,6 +240,8 @@ export function PriceList() {
                   ))}
                 </tbody>
               </table>
+            </div>
+              <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-card to-transparent lg:hidden" />
             </div>
           </div>
         </div>
