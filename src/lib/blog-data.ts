@@ -41,7 +41,7 @@ const basePosts: BlogPost[] = [
     desc: "Ce defecte de anvelopă se pot repara în siguranță și când singura variantă corectă este înlocuirea. Explicații simple, fără jargon.",
     date: "2026-10-11",
     sections: [
-      { h2: "Defecte care se pot repara", p: ["Un cui sau un șurub în banda de rulare, cu o gaură mică, se repară de regulă în siguranță cu ciupercă sau plombă aplicată din interior. Condiția este ca anvelopa să nu fi rulat mult timp dezumflată."] },
+      { h2: "Defecte care se pot repara", p: ["Un cui sau un șurub în banda de rulare, cu o gaură mică, se repară de regulă în siguranță cu petec, ciupercă sau șnur. Condiția este ca anvelopa să nu fi rulat mult timp dezumflată."] },
       { h2: "Defecte care nu se repară", p: ["Tăieturile sau umflăturile pe flanc, deteriorarea talonului, găurile mari și anvelopele cu interiorul ros după rulare fără aer nu se mai repară. Acolo structura anvelopei e compromisă, iar riscul de explozie e real."] },
       { h2: "Vârsta și uzura contează", p: ["O anvelopă foarte veche sau cu profilul aproape de limita legală nu merită reparată, chiar dacă defectul e mic. Banii merg mai bine într-o anvelopă nouă."] },
       { h2: "Cum decidem noi", p: ["Demontăm anvelopa, o verificăm pe interior și îți spunem clar ce variantă e sigură. Dacă nu se poate repara, îți explicăm de ce, nu doar îți vindem alta."] },

@@ -89,7 +89,7 @@ export const services: Service[] = [
     duration: "20–40 minute pe loc",
     bullets: [
       "Intervenții pe A1, DN6, DN69, DN59, Centura Timișoarei și drumurile județene",
-      "Sculărie profesională și compresor la bord",
+      "Aparatură de ultimă generație și compresor la bord",
       "Anvelope de schimb pentru cele mai comune dimensiuni",
       "Semnalizare corectă a zonei de lucru, în siguranță",
     ],
@@ -104,16 +104,15 @@ export const services: Service[] = [
     slug: "reparatii-pe-loc",
     icon: "wrench",
     title: "Reparație pană pe loc",
-    desc: "Pene, tăieturi sau valve defecte — reparate la fața locului, cu vulcanizarea mobilă.",
+    desc: "Pene sau valve defecte — reparate la fața locului, cu vulcanizarea mobilă.",
     intro:
-      "Reparăm pana direct acolo unde ești: plombă internă, ciuperci de vulcanizare, schimb de valvă sau resigilare jantă. Anvelopa rămâne sigură pentru rulaj normal, cu garanție pentru lucrare.",
+      "Reparăm pana direct acolo unde ești: petec, ciupercă sau șnur, schimb de valvă sau resigilare jantă. Anvelopa rămâne sigură pentru rulaj normal, cu garanție pentru lucrare.",
     price: "Preț la telefon",
     priceFrom: "Preț la telefon",
     priceNote: "reparație simplă pe loc",
     duration: "15–30 minute",
     bullets: [
-      "Plombă internă la cald sau ciupercă (reparație permanentă)",
-      "Reparație tăieturi laterale ușoare, unde e sigur",
+      "Petec, ciupercă sau șnur, după tipul defectului",
       "Schimb valve și senzori de presiune",
       "Verificare presiune la toate roțile, gratuit",
     ],
@@ -266,13 +265,13 @@ export const faqs = [
   },
   {
     q: "Ce servicii faceți la fața locului?",
-    a: "Reparație pană (plombă internă, ciuperci), schimb roată cu cea de rezervă, montaj anvelope noi, echilibrare roți cu aparatură mobilă, verificare presiune și schimb valve. Totul se face pe teren, cu vulcanizarea mobilă.",
+    a: "Reparație pană (petec, ciupercă, șnur), schimb roată cu cea de rezervă, montaj anvelope noi, echilibrare roți cu aparatură mobilă, verificare presiune și schimb valve. Totul se face pe teren, cu vulcanizarea mobilă.",
 
     category: "servicii",
   },
   {
     q: "Pot plăti cu cardul?",
-    a: "Da, acceptăm plata cu cardul (POS mobil), transfer bancar și numerar. Emitem factură pentru companii.",
+    a: "Da, acceptăm plata cu cardul (POS mobil), transfer bancar și numerar. Emitem facturi pentru persoane fizice și juridice.",
     category: "plată",
   },
   {

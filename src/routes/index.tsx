@@ -18,6 +18,7 @@ import { FAQSection } from "@/components/site/FAQSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { InterventionsGallery } from "@/components/site/InterventionsGallery";
 import { BASE, MAPS, PHONE, TEL, WA, zones } from "@/lib/site-data";
+import { PriceList } from "@/components/site/PriceList";
 
 
 export const Route = createFileRoute("/")({
@@ -160,7 +161,7 @@ function Index() {
                   ))}
                 </div>
                 <ul className="grid grid-cols-2 gap-x-3 gap-y-2.5 border-t border-border bg-muted/40 px-4 py-4 text-[12px] font-semibold text-foreground/80">
-                  {["Fără programare", "Plată card / cash", "Autoturisme & camioane", "Factură pentru firme"].map((t) => (
+                  {["Fără programare", "Plată card / cash", "Autoturisme & camioane", "Facturi PF & PJ"].map((t) => (
                     <li key={t} className="flex items-center gap-2">
                       <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-brand text-[10px] font-black text-brand-foreground">✓</span>
                       <span className="min-w-0">{t}</span>
@@ -232,6 +233,7 @@ function Index() {
       <ServicesSection />
 
       {/* Preț clar */}
+      <PriceList />
 
 
 
