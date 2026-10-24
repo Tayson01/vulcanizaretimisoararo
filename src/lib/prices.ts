@@ -59,11 +59,23 @@ export function dejantatPrice(r: string) {
   return n <= 15 ? 15 : n <= 20 ? 20 : 25;
 }
 
+// Montat roată/anvelopă fără echilibrat, pe roată (flaier 2026)
+export function faraEchilibratPrice(r: string) {
+  if (isC(r)) return 60;
+  const n = Number(r);
+  return n <= 16 ? 30 : n <= 20 ? 50 : 60;
+}
+
 export const CALC_EXTRAS: { id: string; name: string; price: (r: string) => number; perWheel?: boolean }[] = [
   { id: "dejantat", name: "Dejantat roată", price: dejantatPrice, perWheel: true },
+  { id: "montat-fara-ech", name: "Montat roată fără echilibrat", price: faraEchilibratPrice, perWheel: true },
+  { id: "montat-anvelopa", name: "Montat anvelopă pe jantă, fără echilibrat", price: faraEchilibratPrice, perWheel: true },
   { id: "snur", name: "Reparație șnur", price: () => 50 },
   { id: "ciuperca", name: "Reparație ciupercă", price: () => 100 },
   { id: "petic", name: "Petic 10 cm", price: () => 80 },
+  { id: "petic12", name: "Petic 12 cm", price: () => 120 },
+  { id: "petic20", name: "Petic 20 cm", price: () => 170 },
+  { id: "petic25", name: "Petic 25 cm", price: () => 200 },
   { id: "verificat", name: "Verificat roată", price: () => 30 },
   { id: "etansat", name: "Etanșat roată", price: () => 50 },
   { id: "prezon", name: "Extragere prezon / antifurt", price: () => 75 },
