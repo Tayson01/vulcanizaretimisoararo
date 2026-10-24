@@ -116,6 +116,52 @@ export function PriceList() {
             )}
           </div>
           <p className="mt-3 text-center text-[11px] font-semibold text-muted-foreground">Prețuri în lei, TVA inclus.</p>
+
+          <a href={waLink("Bună! Am o întrebare despre prețuri.")} target="_blank" rel="noopener noreferrer"
+            className="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-border bg-card py-3.5 text-sm font-black uppercase tracking-wider text-foreground shadow-sm transition-colors hover:border-brand hover:text-brand">
+            <MessageCircle className="size-4 text-brand" aria-hidden /> Nu găsești ce cauți? Întreabă pe WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* Flaiere oficiale */}
+      <section id="flaiere" className="scroll-mt-32 border-t border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] text-brand">Lista oficială 2026</span>
+          <h2 className="mt-1 text-2xl font-black tracking-tight sm:text-4xl">Flaierele noastre de prețuri</h2>
+          <p className="mt-2 max-w-xl text-sm font-semibold text-muted-foreground">
+            Exact listele pe care le vezi și în service. Apasă pe imagine ca s-o vezi mărită.
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {[
+              { src: flaierMontaj.url, alt: "Flaier prețuri 2026 — montat și echilibrat pe dimensiuni de jantă" },
+              { src: flaierServicii.url, alt: "Flaier prețuri 2026 — reparații și servicii suplimentare" },
+            ].map((f) => (
+              <a key={f.src} href={f.src} target="_blank" rel="noopener noreferrer"
+                className="group relative block overflow-hidden rounded-3xl border border-border bg-card shadow-lg shadow-foreground/5 transition-transform hover:-translate-y-1">
+                <img src={f.src} alt={f.alt} loading="lazy" className="w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-brand-foreground opacity-0 shadow-md transition-opacity group-hover:opacity-100">
+                  <ZoomIn className="size-3.5" aria-hidden /> Mărește
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA WhatsApp */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+          <div className="overflow-hidden rounded-3xl bg-brand p-6 text-center shadow-xl shadow-brand/20 sm:p-10">
+            <h2 className="text-2xl font-black tracking-tight text-brand-foreground sm:text-4xl">Vrei preț exact pentru mașina ta?</h2>
+            <p className="mx-auto mt-2 max-w-md text-sm font-semibold text-brand-foreground/80">
+              Scrie-ne dimensiunea jantei și ce lucrare vrei — îți răspundem pe loc, zi și noapte.
+            </p>
+            <a href={waLink("Bună! Aș vrea un preț exact. Dimensiunea jantei: ")} target="_blank" rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-card px-8 py-4 text-sm font-black uppercase tracking-wider text-brand shadow-lg transition-transform hover:scale-105">
+              <MessageCircle className="size-5" aria-hidden /> Scrie-ne pe WhatsApp
+            </a>
+          </div>
         </div>
       </section>
     </main>
