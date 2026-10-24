@@ -45,7 +45,7 @@ describe("Timișoara business contact", () => {
   });
 });
 import { zones as allZones, zoneRedirects, COVERAGE } from "./site-data";
-import { services, faqs } from "./site-data";
+import { services, faqs, priceHighlights } from "./site-data";
 import { posts } from "./blog-data";
 test("acoperire: tot județul Timiș + A1 Nădlac–Margina", () => {
   expect(COVERAGE.county).toBe("Timiș");
