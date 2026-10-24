@@ -37,7 +37,6 @@ describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
   });
 });
 
-import { calcTotal } from "./prices";
 describe("calculator", () => {
   const it = test;
   it("schimb R16 = 210 lei, cu valve 260", () => {
