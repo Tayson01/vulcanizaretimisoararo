@@ -39,6 +39,7 @@ describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
 
 import { calcTotal } from "./prices";
 describe("calculator", () => {
+  const it = test;
   it("schimb R16 = 210 lei, cu valve 260", () => {
     expect(calcTotal({ size: 3, service: "schimb", wheels: 4, valves: false, extras: {} }).total).toBe(210);
     expect(calcTotal({ size: 3, service: "schimb", wheels: 4, valves: true, extras: {} }).total).toBe(260);
