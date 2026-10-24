@@ -8,7 +8,7 @@ const REPAIR_ICONS = [CircleDashed, CircleDot, Cable];
 export function QuickPrices() {
   const [i, setI] = useState(3);
   const s = SIZES[i] ?? SIZES[0]!;
-  const [size, montat, , , schimbValva] = s;
+  const [, montat, , , schimbValva] = s;
 
   const rows: [string, string, number][] = [
     ["Montat + echilibrat", "1 roată", montat],
