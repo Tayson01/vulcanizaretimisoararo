@@ -1,9 +1,26 @@
 import { describe, expect, test } from "vitest";
 import { CALC_EXTRAS, QUICK_REPAIRS, REPAIRS, SIZES, calcTotal, faraEchilibratPrice } from "./prices";
+import { services } from "./site-data";
 
 const row = (size: string) => SIZES.find((r) => r[0] === size)!;
 
 describe("lista de prețuri 2026 (flyer, TVA inclus)", () => {
+  test("toate cele 13 dimensiuni coincid cu cele patru coloane din poza 2026", () => {
+    expect(SIZES).toEqual([
+      ["13", 50, 180, 70, 250], ["14", 50, 180, 70, 250],
+      ["15", 60, 200, 80, 260], ["16", 60, 210, 80, 260],
+      ["17", 65, 250, 85, 300], ["18", 70, 260, 90, 320],
+      ["19", 75, 280, 95, 350], ["20", 80, 300, 100, 370],
+      ["21", 85, 320, 100, 370], ["22", 90, 350, 110, 400],
+      ["23", 100, 380, 120, 450], ["24", 100, 400, 120, 450],
+      ["C-uri", 75, 300, 100, 400],
+    ]);
+  });
+  test("categoria echilibrare folosește montat roată pe autoturism din prima poză: 40 / 150 lei", () => {
+    const service = services.find((s) => s.slug === "echilibrare-roti");
+    expect(service?.priceFrom).toBe("40 lei");
+    expect(service?.pricing?.slice(0, 2).map((p) => p.value)).toEqual(["de la 40 lei", "de la 150 lei"]);
+  });
   test("R16: montat+echilibrat 60, schimb 4 roți 210, cu valvă 80 / 260", () => {
     expect(row("16")).toEqual(["16", 60, 210, 80, 260]);
   });

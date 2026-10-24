@@ -119,7 +119,7 @@ export const services: Service[] = [
     pricing: [
       { label: "Șnur", value: "50 lei", note: "reparație rapidă" },
       { label: "Ciupercă", value: "100 lei", note: "per roată" },
-      { label: "Petic", value: "80–200 lei", note: "defect de 10–25 cm" },
+      { label: "Petic", value: "80–200 lei", note: "petic de 10–25 cm" },
       { label: "Schimb valvă", value: "de la 30 lei", note: "standard, C-uri sau mecanică" },
     ],
 
@@ -174,11 +174,13 @@ export const services: Service[] = [
     desc: "Echilibrare electronică precisă pentru rulare lină și uzură uniformă.",
     intro:
       "Vibrațiile în volan la 90–120 km/h vin aproape mereu de la roți neechilibrate. Facem echilibrare electronică cu aparatură mobilă, direct la tine, cu contragreutăți adezive sau cu clemă.",
-    price: "de la 50 lei",
-    priceFrom: "50 lei",
-    priceNote: "montat + echilibrat, 1 roată",
+    price: "de la 40 lei",
+    priceFrom: "40 lei",
+    priceNote: "montat roată pe autoturism + echilibrat, 1 roată",
     pricing: [
-      { label: "Montat + echilibrat", value: "de la 50 lei", note: "1 roată" },
+      { label: "Montat roată pe autoturism + echilibrat", value: "de la 40 lei", note: "1 roată, R13–R16" },
+      { label: "Montat set pe autoturism + echilibrat", value: "de la 150 lei", note: "4 roți, R13–R16" },
+      { label: "Montat anvelopă + echilibrat", value: "de la 50 lei", note: "1 roată" },
       { label: "Montat anvelopă pe jantă", value: "de la 30 lei", note: "fără echilibrare" },
       { label: "Dejantat roată", value: "de la 15 lei", note: "în funcție de jantă" },
       { label: "Verificat roată", value: "30 lei", note: "presiune și stare" },
