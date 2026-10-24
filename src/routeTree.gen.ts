@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IntrebariFrecventeRouteImport } from './routes/intrebari-frecvente'
+import { Route as PreturiRouteImport } from './routes/preturi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -34,6 +35,11 @@ const ContactRoute = ContactRouteImport.update({
 const IntrebariFrecventeRoute = IntrebariFrecventeRouteImport.update({
   id: '/intrebari-frecvente',
   path: '/intrebari-frecvente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreturiRoute = PreturiRouteImport.update({
+  id: '/preturi',
+  path: '/preturi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/preturi': typeof PreturiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicii/$slug': typeof ServiciiSlugRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/preturi': typeof PreturiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicii/$slug': typeof ServiciiSlugRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/preturi': typeof PreturiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicii/$slug': typeof ServiciiSlugRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/intrebari-frecvente'
+    | '/preturi'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/servicii/$slug'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/intrebari-frecvente'
+    | '/preturi'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/servicii/$slug'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/intrebari-frecvente'
+    | '/preturi'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/servicii/$slug'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   IntrebariFrecventeRoute: typeof IntrebariFrecventeRoute
+  PreturiRoute: typeof PreturiRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ServiciiSlugRoute: typeof ServiciiSlugRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/intrebari-frecvente'
       fullPath: '/intrebari-frecvente'
       preLoaderRoute: typeof IntrebariFrecventeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preturi': {
+      id: '/preturi'
+      path: '/preturi'
+      fullPath: '/preturi'
+      preLoaderRoute: typeof PreturiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   IntrebariFrecventeRoute: IntrebariFrecventeRoute,
+  PreturiRoute: PreturiRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   ServiciiSlugRoute: ServiciiSlugRoute,
