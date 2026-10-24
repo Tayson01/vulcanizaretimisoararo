@@ -1320,3 +1320,7 @@
   .qp-repair { transition: none; }
   .qp-repair:hover { transform: none; }
 }
+
+/* Ascunde bara de derulare la rândurile de butoane (calculator prețuri) */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
