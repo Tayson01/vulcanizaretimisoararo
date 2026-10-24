@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IntrebariFrecventeRouteImport } from './routes/intrebari-frecvente'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ServiciiIndexRouteImport } from './routes/servicii.index'
+import { Route as ServiciiSlugRouteImport } from './routes/servicii.$slug'
+import { Route as ZoneIndexRouteImport } from './routes/zone.index'
+import { Route as ZoneSlugRouteImport } from './routes/zone.$slug'
+import { Route as BlogZonaSlugRouteImport } from './routes/blog.zona.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntrebariFrecventeRoute = IntrebariFrecventeRouteImport.update({
+  id: '/intrebari-frecvente',
+  path: '/intrebari-frecvente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciiIndexRoute = ServiciiIndexRouteImport.update({
+  id: '/servicii/',
+  path: '/servicii/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciiSlugRoute = ServiciiSlugRouteImport.update({
+  id: '/servicii/$slug',
+  path: '/servicii/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZoneIndexRoute = ZoneIndexRouteImport.update({
+  id: '/zone/',
+  path: '/zone/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZoneSlugRoute = ZoneSlugRouteImport.update({
+  id: '/zone/$slug',
+  path: '/zone/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogZonaSlugRoute = BlogZonaSlugRouteImport.update({
+  id: '/blog/zona/$slug',
+  path: '/blog/zona/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/servicii/$slug': typeof ServiciiSlugRoute
+  '/zone/$slug': typeof ZoneSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/servicii/': typeof ServiciiIndexRoute
+  '/zone/': typeof ZoneIndexRoute
+  '/blog/zona/$slug': typeof BlogZonaSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/servicii/$slug': typeof ServiciiSlugRoute
+  '/zone/$slug': typeof ZoneSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/servicii': typeof ServiciiIndexRoute
+  '/zone': typeof ZoneIndexRoute
+  '/blog/zona/$slug': typeof BlogZonaSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/intrebari-frecvente': typeof IntrebariFrecventeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/servicii/$slug': typeof ServiciiSlugRoute
+  '/zone/$slug': typeof ZoneSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/servicii/': typeof ServiciiIndexRoute
+  '/zone/': typeof ZoneIndexRoute
+  '/blog/zona/$slug': typeof BlogZonaSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/intrebari-frecvente'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/servicii/$slug'
+    | '/zone/$slug'
+    | '/blog/'
+    | '/servicii/'
+    | '/zone/'
+    | '/blog/zona/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/intrebari-frecvente'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/servicii/$slug'
+    | '/zone/$slug'
+    | '/blog'
+    | '/servicii'
+    | '/zone'
+    | '/blog/zona/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/intrebari-frecvente'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/servicii/$slug'
+    | '/zone/$slug'
+    | '/blog/'
+    | '/servicii/'
+    | '/zone/'
+    | '/blog/zona/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  IntrebariFrecventeRoute: typeof IntrebariFrecventeRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ServiciiSlugRoute: typeof ServiciiSlugRoute
+  ZoneSlugRoute: typeof ZoneSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ServiciiIndexRoute: typeof ServiciiIndexRoute
+  ZoneIndexRoute: typeof ZoneIndexRoute
+  BlogZonaSlugRoute: typeof BlogZonaSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intrebari-frecvente': {
+      id: '/intrebari-frecvente'
+      path: '/intrebari-frecvente'
+      fullPath: '/intrebari-frecvente'
+      preLoaderRoute: typeof IntrebariFrecventeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicii/': {
+      id: '/servicii/'
+      path: '/servicii'
+      fullPath: '/servicii/'
+      preLoaderRoute: typeof ServiciiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicii/$slug': {
+      id: '/servicii/$slug'
+      path: '/servicii/$slug'
+      fullPath: '/servicii/$slug'
+      preLoaderRoute: typeof ServiciiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zone/': {
+      id: '/zone/'
+      path: '/zone'
+      fullPath: '/zone/'
+      preLoaderRoute: typeof ZoneIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zone/$slug': {
+      id: '/zone/$slug'
+      path: '/zone/$slug'
+      fullPath: '/zone/$slug'
+      preLoaderRoute: typeof ZoneSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/zona/$slug': {
+      id: '/blog/zona/$slug'
+      path: '/blog/zona/$slug'
+      fullPath: '/blog/zona/$slug'
+      preLoaderRoute: typeof BlogZonaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  IntrebariFrecventeRoute: IntrebariFrecventeRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ServiciiSlugRoute: ServiciiSlugRoute,
+  ZoneSlugRoute: ZoneSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ServiciiIndexRoute: ServiciiIndexRoute,
+  ZoneIndexRoute: ZoneIndexRoute,
+  BlogZonaSlugRoute: BlogZonaSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
