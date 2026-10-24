@@ -123,7 +123,7 @@ export function ServicesSection() {
                   <span className="tabular-nums text-brand">{p.value}</span>
                 </span>
               ))}
-              <Link to="/" hash="preturi" className="ml-auto inline-flex items-center gap-1 text-xs font-black text-brand hover:underline">
+              <Link to="/preturi" className="ml-auto inline-flex items-center gap-1 text-xs font-black text-brand hover:underline">
                 Toate prețurile <ArrowRight className="size-3.5" />
               </Link>
             </div>

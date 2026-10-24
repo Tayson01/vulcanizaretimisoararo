@@ -85,8 +85,7 @@ function ServicePage() {
             ))}
           </ul>
           <Link
-            to="/"
-            hash="preturi"
+            to="/preturi"
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline"
           >
             Vezi lista completă de prețuri <ArrowRight className="size-4" />
