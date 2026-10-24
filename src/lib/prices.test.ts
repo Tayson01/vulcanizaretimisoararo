@@ -56,3 +56,27 @@ describe("calculator", () => {
     expect(calcTotal({ size: 7, service: "schimb", wheels: 1, valves: false, extras: {} }).total).toBe(80);
   });
 });
+
+describe("calculator — extra noi din flaier", () => {
+  it("peticul pe toate mărimile are prețurile din flaier", () => {
+    const p = (id: string) => CALC_EXTRAS.find((e) => e.id === id)!.price("16");
+    expect(p("petic")).toBe(80);
+    expect(p("petic12")).toBe(120);
+    expect(p("petic20")).toBe(170);
+    expect(p("petic25")).toBe(200);
+  });
+
+  it("montatul fără echilibrat urmează grila din flaier", () => {
+    expect(faraEchilibratPrice("13")).toBe(30);
+    expect(faraEchilibratPrice("16")).toBe(30);
+    expect(faraEchilibratPrice("17")).toBe(50);
+    expect(faraEchilibratPrice("20")).toBe(50);
+    expect(faraEchilibratPrice("21")).toBe(60);
+    expect(faraEchilibratPrice("C-uri")).toBe(60);
+  });
+
+  it("totalul include montatul fără echilibrat pe roată", () => {
+    const { total } = calcTotal({ size: 3, service: "montaj", wheels: 1, valves: false, extras: { "montat-fara-ech": 2 } });
+    expect(total).toBe(60 + 2 * 30); // R16: montat+ech 60 + 2×30
+  });
+});
