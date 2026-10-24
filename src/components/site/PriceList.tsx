@@ -97,7 +97,7 @@ export function PriceList() {
                 <li key={f.t} className="rounded-2xl border border-border bg-card p-4">
                   <f.icon className="size-4 text-brand" aria-hidden />
                   <div className="mt-2 text-sm font-black uppercase tracking-wide text-foreground">{f.t}</div>
-                  <div className="mt-0.5 text-[11px] font-semibold text-muted-foreground">{f.s}</div>
+                  <div className="mt-0.5 text-xs font-semibold text-muted-foreground">{f.s}</div>
                 </li>
               ))}
             </ul>
@@ -106,7 +106,7 @@ export function PriceList() {
       </section>
 
       {/* ===== Bară fixă cu dimensiuni ===== */}
-      <div className="sticky top-16 z-40 border-b border-border bg-background/90 backdrop-blur">
+      <div className="sticky top-16 z-40 border-b border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-5 py-3">
           <span className="text-[11px] font-black uppercase tracking-widest text-brand">Dimensiunea jantei</span>
           <div
@@ -211,7 +211,7 @@ export function PriceList() {
                       <th key={t} scope="col" className="px-1.5 py-3 text-right sm:px-4">
                         <span className="hidden sm:block">{t}</span>
                         <span className="sm:hidden">{short}</span>
-                        <span className="block font-bold normal-case tracking-normal opacity-70">{sub}</span>
+                        <span className="block font-bold normal-case tracking-normal">{sub}</span>
                       </th>
                     ))}
                   </tr>
