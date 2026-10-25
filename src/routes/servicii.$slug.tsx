@@ -5,6 +5,17 @@ import { ArrowRight, Check, Clock, Phone, Receipt, Tag } from "lucide-react";
 import { Btn, BtnLink, SectionLabel } from "@/components/site/ui";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { PHONE, TEL, WA, services, zones } from "@/lib/site-data";
+import dubaInterventie from "@/assets/duba-interventie.jpg";
+
+/** Poze reale afișate pe pagina serviciului care descrie locația fixă. */
+const serviceImages: Record<string, { src: string; alt: string; caption: string }> = {
+  "vulcanizare-atelier-non-stop": {
+    src: dubaInterventie,
+    alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
+    caption: "Atelierul și duba de intervenție — Str. Cloșca 33, Timișoara",
+  },
+};
+
 
 export const Route = createFileRoute("/servicii/$slug")({
   staticData: { sitemap: true },
@@ -37,6 +48,8 @@ export const Route = createFileRoute("/servicii/$slug")({
 function ServicePage() {
   const { service } = Route.useLoaderData();
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const serviceImage = serviceImages[service.slug];
+
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-14">
