@@ -55,3 +55,4 @@
 - [x] Pagina „Toate prețurile" (/preturi): layout premium cu toată lista de prețuri
 - [x] Secțiunea „Locație fixă & echipă mobilă" mutată deasupra hărții de acoperire
 - [ ] Upgrade card „Locație fixă": marcă pulsatoare pe poză, placă cu adresa, buton mai vizibil
+- [ ] Eliminat banda informativă (Adresă / Program / Plată / Facturi) de sub fotografii — „panaramix"
