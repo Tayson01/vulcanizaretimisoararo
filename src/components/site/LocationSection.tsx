@@ -11,7 +11,7 @@ const places = [
     icon: MapPin,
     tag: "Locație fixă",
     title: "Intrarea în atelier",
-    text: "Recunoști intrarea după mașina verde și omul gonflabil de pe trotuar.",
+    text: "Recunoști intrarea după mașina verde.",
     href: MAPS,
     external: true,
     cta: "Deschide în Google Maps",
@@ -83,7 +83,7 @@ export function LocationSection() {
 
             <div className="absolute inset-x-4 bottom-3.5 min-w-0">
               {place.address && (
-                <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-background/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-background ring-1 ring-background/25 backdrop-blur-md">
+                <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-foreground shadow-card backdrop-blur">
                   <MapPin className="size-3 text-brand" /> {place.address}
                 </span>
               )}
