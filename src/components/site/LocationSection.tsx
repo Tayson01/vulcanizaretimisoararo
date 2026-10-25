@@ -38,7 +38,7 @@ const places = [
 
 export function LocationSection() {
   return (
-    <section id="locatie" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-12 sm:py-16">
+    <section id="locatie" className="divider-fade mx-auto max-w-6xl scroll-mt-20 px-5 py-12 sm:py-16">
       <div className="min-w-0 max-w-2xl">
         <SectionLabel>Locația noastră · Timișoara</SectionLabel>
         <h2 className="mt-3 text-[1.5rem] font-black leading-[1.1] tracking-tight sm:text-[1.9rem]">
