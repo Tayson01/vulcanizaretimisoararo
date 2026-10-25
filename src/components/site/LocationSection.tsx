@@ -10,24 +10,28 @@ const places = [
     img: fataAtelier,
     icon: MapPin,
     tag: "Locație fixă",
-    title: "Str. Cloșca 33",
+    address: "Str. Cloșca 33",
+    title: "Intrarea în atelier",
+    text: "Recunoști intrarea după mașina verde.",
     href: MAPS,
     external: true,
     cta: "Deschide în Google Maps",
     pos: "object-[50%_75%]",
-    ratio: "aspect-[16/10] md:aspect-auto md:h-[300px]",
+    ratio: "aspect-[16/10] md:aspect-auto md:h-[320px]",
     alt: "Fața atelierului Vulcanizare Non Stop de pe Str. Cloșca 33 Timișoara: mașina verde cu numărul 95 parcată în față, panoul roșu cu telefonul 0725 138 493 și omul gonflabil de service roți pe trotuar",
   },
   {
     img: dubaInterventie,
     icon: Truck,
     tag: "Echipă mobilă",
+    address: null,
     title: "Duba de intervenție",
+    text: "Pornește din Cloșca 33 spre tot județul Timiș și pe A1, cu aparatură de ultimă generație la bord.",
     href: `tel:${TEL}`,
     external: false,
     cta: `Sună: ${PHONE}`,
     pos: "object-[center_88%]",
-    ratio: "aspect-[16/10] md:aspect-auto md:h-[300px]",
+    ratio: "aspect-[16/10] md:aspect-auto md:h-[320px]",
     alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
   },
 ];
@@ -60,15 +64,23 @@ export function LocationSection() {
               decoding="async"
               className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] ${place.pos}`}
             />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/25 to-foreground/5" />
 
-            <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-foreground shadow-card backdrop-blur">
-              <place.icon className="size-3 text-brand" /> {place.tag}
-            </span>
+            <div className="absolute inset-x-3 top-3 flex min-w-0 flex-wrap items-center gap-1.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-foreground shadow-card backdrop-blur">
+                <place.icon className="size-3 text-brand" /> {place.tag}
+              </span>
+              {place.address && (
+                <span className="inline-flex items-center rounded-full bg-background/60 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-foreground/75 backdrop-blur">
+                  {place.address}
+                </span>
+              )}
+            </div>
 
             <div className="absolute inset-x-4 bottom-3.5 min-w-0">
               <h3 className="min-w-0 text-[17px] font-black leading-snug text-background sm:text-xl">{place.title}</h3>
-              <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
+              <p className="mt-1 min-w-0 max-w-md text-[11.5px] font-semibold leading-snug text-background/75">{place.text}</p>
+              <span className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
                 {place.cta}
                 <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </span>

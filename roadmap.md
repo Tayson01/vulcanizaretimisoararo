@@ -57,4 +57,5 @@
 - [x] Upgrade card „Locație fixă": marcă pulsatoare pe poză, placă cu adresa, buton mai vizibil
 - [x] Eliminat banda informativă (Adresă / Program / Plată / Facturi) de sub fotografii — „panaramix"
 - [x] Cardurile de locație aduse la minim: un însemn + titlu + buton; eliminated pinul pulsatoriu, placa cu adresa și paragraful — „ingramădită"
+- [x] Cardurile de locație aduse la forma cerută: descrierea la loc, titlul pe toată lățimea, „Str. Cloșca 33" mic sus lângă „Locație fixă"
 - [x] Titlul mare de pe prima pagină micșorat pe telefon ca să nu mai pară „lat"
