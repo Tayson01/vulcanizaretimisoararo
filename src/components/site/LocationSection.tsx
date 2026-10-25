@@ -1,6 +1,6 @@
-import { ArrowUpRight, Clock, MapPin, Truck } from "lucide-react";
+import { ArrowUpRight, CreditCard, MapPin, Receipt, Clock, Truck } from "lucide-react";
 
-import { MAPS, PHONE, TEL } from "@/lib/site-data";
+import { ADDRESS, MAPS, PHONE, TEL } from "@/lib/site-data";
 import { SectionLabel } from "@/components/site/ui";
 import fataAtelier from "@/assets/locatie-closca-33.jpg";
 import dubaInterventie from "@/assets/duba-interventie.jpg";
@@ -11,7 +11,7 @@ const places = [
     icon: MapPin,
     tag: "Locație fixă",
     title: "Intrarea în atelier",
-    text: "Str. Cloșca 33 — recunoști fața clădirii după mașina verde și omul gonflabil de pe trotuar.",
+    text: "Recunoști fața clădirii după mașina verde și omul gonflabil de pe trotuar.",
     href: MAPS,
     external: true,
     cta: "Deschide în Google Maps",
@@ -34,26 +34,21 @@ const places = [
   },
 ];
 
+const facts = [
+  { icon: MapPin, label: "Adresă", value: ADDRESS },
+  { icon: Clock, label: "Program", value: "Non-stop 24/24" },
+  { icon: CreditCard, label: "Plată", value: "Card sau cash" },
+  { icon: Receipt, label: "Facturi", value: "Persoane fizice & juridice" },
+];
+
 export function LocationSection() {
   return (
     <section id="locatie" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-12 sm:py-16">
-      <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-3">
-        <div className="min-w-0 max-w-xl">
-          <SectionLabel>Locația noastră · Timișoara</SectionLabel>
-          <h2 className="mt-3 text-[1.5rem] font-black leading-[1.1] tracking-tight sm:text-[1.9rem]">
-            Locație fixă și echipă mobilă, ambele din Cloșca 33.
-          </h2>
-        </div>
-        <a
-          href={MAPS}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[12px] font-bold text-foreground shadow-card transition-all hover:-translate-y-0.5 hover:border-brand/40"
-        >
-          <MapPin className="size-3.5 text-brand" />
-          Str. Cloșca 33
-          <ArrowUpRight className="size-3.5 text-brand transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </a>
+      <div className="min-w-0 max-w-2xl">
+        <SectionLabel>Locația noastră · Timișoara</SectionLabel>
+        <h2 className="mt-3 text-[1.5rem] font-black leading-[1.1] tracking-tight sm:text-[1.9rem]">
+          Locație fixă și echipă mobilă, ambele din Cloșca 33.
+        </h2>
       </div>
 
       <div className="mt-5 grid gap-3 sm:mt-7 md:grid-cols-5">
@@ -90,10 +85,17 @@ export function LocationSection() {
         ))}
       </div>
 
-      <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 px-1 text-[11.5px] font-semibold text-muted-foreground">
-        <Clock className="size-3.5 text-brand" />
-        Deschis non-stop 24/24 · județul Timiș și A1 (Nădlac – Margina)
-      </p>
+      <div className="mt-3 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-card sm:grid-cols-4">
+        {facts.map((fact) => (
+          <div key={fact.label} className="flex min-w-0 items-start gap-2.5 bg-card px-3.5 py-3">
+            <fact.icon className="mt-0.5 size-4 shrink-0 text-brand" />
+            <span className="min-w-0">
+              <span className="block text-[9px] font-black uppercase tracking-[0.16em] text-muted-foreground">{fact.label}</span>
+              <span className="mt-0.5 block text-[12.5px] font-extrabold leading-tight text-foreground">{fact.value}</span>
+            </span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

@@ -241,13 +241,13 @@ function Index() {
 
 
 
+      {/* Locație fixă & echipă mobilă — poze reale din Cloșca 33 */}
+      <LocationSection />
+
       {/* Hartă acoperire */}
       <div className="divider-fade bg-background">
         <CoverageMapSection />
       </div>
-
-      {/* Locație fixă & echipă mobilă — poze reale din Cloșca 33 */}
-      <LocationSection />
 
       {/* Dovadă: intervenții reale + recenzii */}
       <InterventionsGallery />
