@@ -5,6 +5,17 @@ import { ArrowRight, Check, Clock, Phone, Receipt, Tag } from "lucide-react";
 import { Btn, BtnLink, SectionLabel } from "@/components/site/ui";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { PHONE, TEL, WA, services, zones } from "@/lib/site-data";
+import dubaInterventie from "@/assets/duba-interventie.jpg";
+
+/** Poze reale afișate pe pagina serviciului care descrie locația fixă. */
+const serviceImages: Record<string, { src: string; alt: string; caption: string }> = {
+  "vulcanizare-atelier-non-stop": {
+    src: dubaInterventie,
+    alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
+    caption: "Atelierul și duba de intervenție — Str. Cloșca 33, Timișoara",
+  },
+};
+
 
 export const Route = createFileRoute("/servicii/$slug")({
   staticData: { sitemap: true },
@@ -37,6 +48,8 @@ export const Route = createFileRoute("/servicii/$slug")({
 function ServicePage() {
   const { service } = Route.useLoaderData();
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const serviceImage = serviceImages[service.slug];
+
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-14">
@@ -51,7 +64,25 @@ function ServicePage() {
         </div>
       </div>
 
+      {serviceImage ? (
+        <figure className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-border bg-card">
+          <img
+            src={serviceImage.src}
+            alt={serviceImage.alt}
+            loading="lazy"
+            decoding="async"
+            className="aspect-square w-full object-cover object-[center_72%] sm:aspect-[4/3]"
+          />
+
+
+          <figcaption className="px-5 py-3 text-xs font-semibold text-muted-foreground">
+            {serviceImage.caption}
+          </figcaption>
+        </figure>
+      ) : null}
+
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
+
         <div className="rounded-2xl border border-border bg-card p-5">
           <p className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
             <Tag className="size-4 text-brand" /> Tarif
