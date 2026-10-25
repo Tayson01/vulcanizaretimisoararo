@@ -53,3 +53,5 @@
 - [x] Corectează declanșarea barelor pe telefon și verifică umplerea, vizibilitatea implicită și preferința de mișcare redusă — verificat la 390×844, 360×640 și desktop; fără erori.
 
 - [x] Pagina „Toate prețurile" (/preturi): layout premium cu toată lista de prețuri
+- [x] Secțiunea „Locație fixă & echipă mobilă" mutată deasupra hărții de acoperire
+- [ ] Upgrade card „Locație fixă": marcă pulsatoare pe poză, placă cu adresa, buton mai vizibil
