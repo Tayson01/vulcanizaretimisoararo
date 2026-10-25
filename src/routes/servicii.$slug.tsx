@@ -71,8 +71,9 @@ function ServicePage() {
             alt={serviceImage.alt}
             loading="lazy"
             decoding="async"
-            className="aspect-[16/9] w-full object-cover"
+            className="aspect-[4/3] w-full object-cover sm:aspect-[16/10]"
           />
+
           <figcaption className="px-5 py-3 text-xs font-semibold text-muted-foreground">
             {serviceImage.caption}
           </figcaption>
