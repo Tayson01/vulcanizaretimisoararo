@@ -66,9 +66,9 @@ export function LocationSection() {
               <place.icon className="size-3 text-brand" /> {place.tag}
             </span>
 
-            <div className="absolute inset-x-4 bottom-3.5 flex min-w-0 items-end justify-between gap-3">
-              <h3 className="min-w-0 truncate text-[17px] font-black leading-snug text-background sm:text-xl">{place.title}</h3>
-              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
+            <div className="absolute inset-x-4 bottom-3.5 min-w-0">
+              <h3 className="min-w-0 text-[17px] font-black leading-snug text-background sm:text-xl">{place.title}</h3>
+              <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
                 {place.cta}
                 <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </span>

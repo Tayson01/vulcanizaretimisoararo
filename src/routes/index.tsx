@@ -96,7 +96,7 @@ function Index() {
               </span>
 
 
-              <h1 className="mt-4 text-[2.6rem] font-black leading-[1.04] tracking-tight sm:text-6xl md:leading-[0.98]">
+              <h1 className="mt-4 text-[2.1rem] font-black leading-[1.08] tracking-tight sm:text-6xl md:leading-[0.98]">
                 <span className="fx-word" style={{ animationDelay: "80ms" }}>Vulcanizare</span>{" "}
                 <span className="fx-word" style={{ animationDelay: "200ms" }}>în</span>{" "}
                 <span className="fx-word fx-text-gradient relative inline-block">
