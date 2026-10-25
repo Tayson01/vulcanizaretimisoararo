@@ -17,6 +17,8 @@ import { ServicesSection } from "@/components/site/ServicesSection";
 import { FAQSection } from "@/components/site/FAQSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { InterventionsGallery } from "@/components/site/InterventionsGallery";
+import { LocationSection } from "@/components/site/LocationSection";
+
 import { BASE, MAPS, PHONE, TEL, WA, zones } from "@/lib/site-data";
 
 
@@ -240,9 +242,12 @@ function Index() {
         <CoverageMapSection />
       </div>
 
+      {/* Locație fixă & echipă mobilă — poze reale din Cloșca 33 */}
+      <LocationSection />
 
       {/* Dovadă: intervenții reale + recenzii */}
       <InterventionsGallery />
+
 
       {/* FAQ */}
       <FAQSection />

@@ -2,6 +2,8 @@ import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { SectionLabel } from "@/components/site/ui";
 import { ADDRESS, MAPS, PHONE, TEL, WA } from "@/lib/site-data";
+import intrareClosca from "@/assets/locatie-closca-verde.jpg";
+
 
 
 export function ContactSection() {
@@ -21,6 +23,27 @@ export function ContactSection() {
         <div className="mt-6 max-w-2xl sm:mt-10 lg:mx-auto">
           {/* Detalii — listă fină */}
           <div className="rounded-[1.75rem] border border-border bg-card p-2 shadow-card sm:rounded-[2rem]">
+            <a
+              href={MAPS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative mb-2 block min-w-0 overflow-hidden rounded-[1.4rem]"
+            >
+              <img
+                src={intrareClosca}
+                alt="Intrarea în atelierul Vulcanizare Non Stop Timișoara de pe Str. Cloșca 33, cu mașina verde parcată în față"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+              <span className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-2 rounded-full bg-background/85 px-4 py-2 text-[11px] font-bold backdrop-blur">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="size-3.5 text-brand" /> Intrarea în atelier · Str. Cloșca 33
+                </span>
+                <span className="text-brand">Hartă →</span>
+              </span>
+            </a>
+
             {[
               { icon: Clock, label: "Program", value: "Non-stop · 24/24, 7 din 7", href: undefined },
               { icon: Phone, label: "Telefon", value: PHONE, href: `tel:${TEL}` },
