@@ -1,6 +1,6 @@
-import { ArrowUpRight, Clock, CreditCard, MapPin, Receipt, Truck } from "lucide-react";
+import { ArrowUpRight, MapPin, Truck } from "lucide-react";
 
-import { ADDRESS, MAPS, PHONE, TEL } from "@/lib/site-data";
+import { MAPS, PHONE, TEL } from "@/lib/site-data";
 import { SectionLabel } from "@/components/site/ui";
 import fataAtelier from "@/assets/locatie-closca-33.jpg";
 import dubaInterventie from "@/assets/duba-interventie.jpg";
@@ -36,13 +36,6 @@ const places = [
     address: null,
     alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
   },
-];
-
-const facts = [
-  { icon: MapPin, label: "Adresă", value: ADDRESS },
-  { icon: Clock, label: "Program", value: "Non-stop 24/24" },
-  { icon: CreditCard, label: "Plată", value: "Card sau cash" },
-  { icon: Receipt, label: "Facturi", value: "Persoane fizice & juridice" },
 ];
 
 export function LocationSection() {
@@ -105,17 +98,6 @@ export function LocationSection() {
         ))}
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-card sm:grid-cols-4">
-        {facts.map((fact) => (
-          <div key={fact.label} className="flex min-w-0 items-start gap-2.5 bg-card px-3.5 py-3">
-            <fact.icon className="mt-0.5 size-4 shrink-0 text-brand" />
-            <span className="min-w-0">
-              <span className="block text-[9px] font-black uppercase tracking-[0.16em] text-muted-foreground">{fact.label}</span>
-              <span className="mt-0.5 block text-[12.5px] font-extrabold leading-tight text-foreground">{fact.value}</span>
-            </span>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
