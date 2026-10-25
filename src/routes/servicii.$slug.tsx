@@ -64,7 +64,23 @@ function ServicePage() {
         </div>
       </div>
 
+      {serviceImage ? (
+        <figure className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-border bg-card">
+          <img
+            src={serviceImage.src}
+            alt={serviceImage.alt}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[16/9] w-full object-cover"
+          />
+          <figcaption className="px-5 py-3 text-xs font-semibold text-muted-foreground">
+            {serviceImage.caption}
+          </figcaption>
+        </figure>
+      ) : null}
+
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
+
         <div className="rounded-2xl border border-border bg-card p-5">
           <p className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
             <Tag className="size-4 text-brand" /> Tarif
