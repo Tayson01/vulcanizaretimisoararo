@@ -12,6 +12,8 @@ import { Btn } from "@/components/site/ui";
 import { CountUp, LiveClock } from "@/components/site/ScrollFx";
 import heroNoapte from "@/assets/hero-noapte.webp";
 import heroNoapteSm from "@/assets/hero-noapte-sm.webp";
+import intrareClosca from "@/assets/locatie-closca-verde.jpg";
+
 import { CoverageMapSection } from "@/components/site/CoverageMapSection";
 import { ServicesSection } from "@/components/site/ServicesSection";
 import { FAQSection } from "@/components/site/FAQSection";
@@ -171,9 +173,10 @@ function Index() {
                 </ul>
                 <a href="#harta" className="group flex items-center gap-3 border-t border-border px-4 py-3.5 transition-colors active:bg-muted/60">
                   <span className="relative grid size-10 shrink-0 place-items-center">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-brand/30 motion-reduce:animate-none" />
-                    <span className="relative grid size-9 place-items-center rounded-full border-2 border-card bg-brand text-[14px] font-black italic text-brand-foreground shadow-card">V</span>
+                    <span className="absolute inset-0 animate-ping rounded-xl bg-brand/30 motion-reduce:animate-none" />
+                    <img src={intrareClosca} alt="" aria-hidden decoding="async" className="relative size-9 rounded-xl border-2 border-card object-cover shadow-card" />
                   </span>
+
                   <span className="min-w-0 flex-1">
                     <span className="block text-[13px] font-black text-foreground">Str. Cloșca nr. 33</span>
                     <span className="block text-[11px] font-semibold text-muted-foreground">Vezi pe hartă în cât timp ajungem</span>
@@ -212,9 +215,10 @@ function Index() {
 
                 <a href="#harta" className="group mt-4 flex items-center gap-4 rounded-3xl border border-border bg-card px-5 py-4 shadow-card transition-all hover:-translate-y-0.5 hover:border-brand/40">
                   <span className="relative grid size-11 shrink-0 place-items-center">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-brand/30 motion-reduce:animate-none" />
-                    <span className="relative grid size-10 place-items-center rounded-full border-2 border-card bg-brand text-[15px] font-black italic text-brand-foreground shadow-card">V</span>
+                    <span className="absolute inset-0 animate-ping rounded-xl bg-brand/30 motion-reduce:animate-none" />
+                    <img src={intrareClosca} alt="" aria-hidden decoding="async" className="relative size-10 rounded-xl border-2 border-card object-cover shadow-card" />
                   </span>
+
                   <span className="min-w-0 flex-1">
                     <span className="block text-[15px] font-black text-foreground">Str. Cloșca nr. 33, Timișoara</span>
                     <span className="block text-xs font-semibold text-muted-foreground">Vezi pe hartă în cât timp ajungem</span>
