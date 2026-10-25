@@ -16,6 +16,7 @@ const places = [
     external: true,
     cta: "Deschide în Google Maps",
     pos: "object-[50%_62%]",
+    ratio: "aspect-[16/10] md:aspect-[2/1]",
     alt: "Fața atelierului Vulcanizare Non Stop de pe Str. Cloșca 33 Timișoara: mașina verde cu numărul 95 parcată în față, panoul roșu cu telefonul 0725 138 493 și omul gonflabil de service roți pe trotuar",
   },
   {
@@ -28,6 +29,7 @@ const places = [
     external: false,
     cta: `Sună: ${PHONE}`,
     pos: "object-[center_72%]",
+    ratio: "aspect-[16/10] md:aspect-[4/3]",
     alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
   },
 ];
@@ -61,7 +63,7 @@ export function LocationSection() {
             href={place.href}
             target={place.external ? "_blank" : undefined}
             rel={place.external ? "noopener noreferrer" : undefined}
-            className={`group relative aspect-[4/3] min-w-0 overflow-hidden rounded-[22px] border border-border shadow-card transition-all hover:-translate-y-0.5 hover:shadow-float md:aspect-auto ${
+            className={`group relative min-w-0 overflow-hidden rounded-[22px] border border-border shadow-card transition-all hover:-translate-y-0.5 hover:shadow-float ${place.ratio} ${
               place.external ? "md:col-span-3" : "md:col-span-2"
             }`}
           >
