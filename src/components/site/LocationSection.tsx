@@ -10,15 +10,12 @@ const places = [
     img: fataAtelier,
     icon: MapPin,
     tag: "Locație fixă",
-    title: "Intrarea în atelier",
-    text: "Recunoști intrarea după mașina verde.",
+    title: "Str. Cloșca 33",
     href: MAPS,
     external: true,
     cta: "Deschide în Google Maps",
     pos: "object-[50%_75%]",
-    ratio: "aspect-[16/10] md:aspect-auto md:h-[330px]",
-    pin: "left-[49%] top-[35%] md:top-[25%]",
-    address: "Str. Cloșca 33",
+    ratio: "aspect-[16/10] md:aspect-auto md:h-[300px]",
     alt: "Fața atelierului Vulcanizare Non Stop de pe Str. Cloșca 33 Timișoara: mașina verde cu numărul 95 parcată în față, panoul roșu cu telefonul 0725 138 493 și omul gonflabil de service roți pe trotuar",
   },
   {
@@ -26,14 +23,11 @@ const places = [
     icon: Truck,
     tag: "Echipă mobilă",
     title: "Duba de intervenție",
-    text: "Pornește din Cloșca 33 spre tot județul Timiș și pe A1, cu aparatură de ultimă generație la bord.",
     href: `tel:${TEL}`,
     external: false,
     cta: `Sună: ${PHONE}`,
     pos: "object-[center_88%]",
-    ratio: "aspect-[16/10] md:aspect-auto md:h-[330px]",
-    pin: null,
-    address: null,
+    ratio: "aspect-[16/10] md:aspect-auto md:h-[300px]",
     alt: "Duba de intervenție Vulcanizare Auto Non Stop parcată în fața atelierului de pe Str. Cloșca 33",
   },
 ];
@@ -66,30 +60,15 @@ export function LocationSection() {
               decoding="async"
               className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] ${place.pos}`}
             />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-foreground/5" />
-
-            {place.pin && (
-              <span aria-hidden className={`pointer-events-none absolute z-[1] size-7 -translate-x-1/2 -translate-y-1/2 ${place.pin}`}>
-                <span className="absolute inset-0 animate-ping rounded-full bg-brand/40 motion-reduce:animate-none" />
-                <span className="relative grid size-7 place-items-center rounded-full bg-brand text-brand-foreground shadow-glow ring-2 ring-background/50">
-                  <MapPin className="size-3.5" />
-                </span>
-              </span>
-            )}
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
 
             <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-foreground shadow-card backdrop-blur">
               <place.icon className="size-3 text-brand" /> {place.tag}
             </span>
 
-            <div className="absolute inset-x-4 bottom-3.5 min-w-0">
-              {place.address && (
-                <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-foreground shadow-card backdrop-blur">
-                  <MapPin className="size-3 text-brand" /> {place.address}
-                </span>
-              )}
-              <h3 className="text-[15px] font-black leading-snug text-background sm:text-lg">{place.title}</h3>
-              <p className="mt-1 min-w-0 text-[11.5px] font-semibold leading-snug text-background/75">{place.text}</p>
-              <span className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
+            <div className="absolute inset-x-4 bottom-3.5 flex min-w-0 items-end justify-between gap-3">
+              <h3 className="min-w-0 truncate text-[17px] font-black leading-snug text-background sm:text-xl">{place.title}</h3>
+              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[11px] font-black text-brand-foreground shadow-glow transition-all group-hover:brightness-110">
                 {place.cta}
                 <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </span>
